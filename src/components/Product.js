@@ -1,8 +1,23 @@
 import React from 'react';
 import "./Product.css";
 import StarIcon from '@mui/icons-material/Star';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { useStateValue } from '../helper/StateProvider';
 
-function Product({title, image, price, rating}) {
+function Product({id, title, image, price, rating}) {
+    const [state, dispatch] = useStateValue();
+    const addToCart = () => {
+        dispatch({
+            type: 'ADD_TO_CART',
+            item: {
+                id: id,
+                title: title,
+                image: image,
+                price: price,
+                rating: rating,
+            },
+        });
+    }
   return (
     <div className='product'>
         <div className='product_info'>
@@ -18,10 +33,9 @@ function Product({title, image, price, rating}) {
         </div>
         <img 
             src={image} alt=''/>
-            <button>Add to Basket</button>
-
+            <button onClick={addToCart}><AddShoppingCartIcon/></button>
     </div>
   )
 }
 
-export default Product
+export default Product;

@@ -56,12 +56,23 @@
     font-weight: 800;
 }
 
-.header_optionBasket {
+.header_optionShoppingBag {
     display: flex;
     color: white;
     align-items: center;
-    margin-left: 5px;
+    margin: 0 35px;
+    position: relative;
 }
-.header_basketCount {
-    margin: 0 10px;
+
+.header_optionShoppingBag svg {
+    width: 35px;
+    height: 35px;
+    color: white;
+}
+.header_shoppingCount {
+    margin: -30px 0 0 11px; 
+    background-color: #131921;
+    font-size: 20px;
+    position:absolute;
+    
 }

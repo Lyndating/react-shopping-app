@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Slider.css';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import Home_Slide1 from '../Images/Home_Slide1.png';
+// import Home_Slide1 from '../Images/Home_Slide1.png';
 
 const homeSliderImages = [
     {title: "Netflex", subtitle:"Join now for unlimited sources", img: "https://assets.nflxext.com/ffe/siteui/vlv3/6e32b96a-d4be-4e44-a19b-1bd2d2279b51/ff59fb01-70bb-4018-ad7d-ac95b53f2d79/AU-en-20220516-popsignuptwoweeks-perspective_alpha_website_large.jpg"},
