@@ -67,7 +67,7 @@ const Login = () => {
                     onClick={signInHandler}
                 >SIGN IN</button>
                 <div className='sign_up'>
-                    <h5>Don't currently have an account?</h5>
+                    <h5>Don't have an account?</h5>
                     <button 
                         className='signUp-btn'
                         onClick={signUpHandler}
