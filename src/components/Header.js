@@ -1,32 +1,47 @@
 import React from 'react';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
-import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import {Link} from 'react-router-dom';
+import {useStateValue} from '../helper/StateProvider';
+import {auth} from '../firebase'
 
 function Header() {
+  const [{basket, user},dispatch]= useStateValue();
+  let signInState;
+  let userName;
+  user? signInState="Sign Out" : signInState="Sign In";
+
+  const signOutHandler = ()=> {
+    if (user) {
+      auth.signOut();
+    }
+  }
+
   return (
     <div className='header'>
       <Link to="/">
         <img 
         className='header_logo'
-        src="shopping_logo.png" alt='header_logo'
-        /> 
+        src="shopping_logo.gif" alt='header_logo'
+        />
       </Link>      
 
       <div className='header_search'>
-        <input
+        {/* <input
           className='header_searchInput'
           type='text' 
         />
-        <SearchIcon className='header_searchIcon'/>
+        <SearchIcon className='header_searchIcon'/> */}
       </div>
 
       <div className='header_nav'>
-        <div className='header_option'>
+        <Link to={!user && "/login"}>
+        <div onClick={signOutHandler} className='header_option'>
           <span className='header_optionLineOne'>Hello</span>
-          <span className='header_optionLineTwo'>Sign in </span>
+          <span className='header_optionLineTwo'>{signInState}</span>
         </div>
+        </Link>
         <div className='header_option'>
           <span className='header_optionLineOne'>Return</span>
           <span className='header_optionLineTwo'>& Orders </span>
@@ -34,8 +49,16 @@ function Header() {
 
         <div className='header_optionShoppingBag'>
           <Link to="/checkout">
-            <AddShoppingCartOutlinedIcon/>
-            <span className='header_optionLineTwo header_shoppingCount'>0</span>
+          {!basket || basket.length === 0 &&
+              <ShoppingBagOutlinedIcon/>
+          }
+          {basket.length > 0 &&
+            <>
+              <ShoppingBagOutlinedIcon/>
+              <span className='header_optionLineTwo header_shoppingCount'>{basket?basket.length:0}</span>
+            </>
+
+          }
           </Link>
         </div>
       </div>

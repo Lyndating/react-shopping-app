@@ -12,27 +12,64 @@ function Home() {
             <div className='home_row'>
                 <Product 
                     id="1"
-                    title="The lean startup" 
-                    price={29.99} 
-                    image="https:images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" 
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
                     rating={5}
                 />
                 <Product
                     id="2"
-                    title="The lean startup" 
-                    price={29.99} 
-                    image="https:images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg" 
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
                     rating={5}
                 />
-                <Product/>
+                <Product
+                    id="3"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
             </div>
             <div className='home_row'>
-                <Product/>
-                <Product/>
-                <Product/>
+                <Product
+                    id="4"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
+                <Product
+                    id="5"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
+                <Product
+                    id="6"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
             </div>
             <div className='home_row'>
-                <Product/>
+                <Product
+                    id="7"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
+                <Product
+                    id="8"
+                    title="ELSA MAGIC CIRCUS DRESS" 
+                    price={63.96} 
+                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
+                    rating={5}
+                />
             </div>
         </div>
     </div>

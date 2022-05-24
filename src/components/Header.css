@@ -22,19 +22,19 @@
     height: 20px;
     padding:10px;
     border: none;
-    width:100%;
+    width:80%;
     outline: none;
     border-radius: 50px;
     font-size: 14px;
 }
 
 .header_searchIcon {
-    padding: 5px;
+    padding: 5px 10px;
     height: 30px !important;
     background: linear-gradient(90deg, #ff9000, #ff5000);
     border-radius: 20px;
     cursor: pointer;
-    margin-left: -30px;
+    margin-left: -40px;
 }
 .header_nav {
     display: flex;
@@ -70,9 +70,9 @@
     color: white;
 }
 .header_shoppingCount {
-    margin: -30px 0 0 11px; 
+    margin: 14px 0 0 -10px; 
     background-color: #131921;
-    font-size: 20px;
+    font-size: 21px;
     position:absolute;
-    
+    color:white;
 }

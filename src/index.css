@@ -4,7 +4,8 @@
 
 body {
   margin: 0;
-  background-image: url("//gw.alicdn.com/imgextra/i4/O1CN01pF6oIt1hGXxYvrvlT_!!6000000004250-2-tps-1920-3000.png_.webp");
+  background-color: white;
+  /* background-image: url("//gw.alicdn.com/imgextra/i4/O1CN01pF6oIt1hGXxYvrvlT_!!6000000004250-2-tps-1920-3000.png_.webp"); */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
