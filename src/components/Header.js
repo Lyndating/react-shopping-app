@@ -9,7 +9,6 @@ import {auth} from '../firebase'
 function Header() {
   const [{basket, user},dispatch]= useStateValue();
   let signInState;
-  let userName;
   user? signInState="Sign Out" : signInState="Sign In";
 
   const signOutHandler = ()=> {
@@ -38,7 +37,7 @@ function Header() {
       <div className='header_nav'>
         <Link to={!user && "/login"}>
         <div onClick={signOutHandler} className='header_option'>
-          <span className='header_optionLineOne'>Hello</span>
+          <span className='header_optionLineOne'>Hello {user? user.email : "Guest" }</span>
           <span className='header_optionLineTwo'>{signInState}</span>
         </div>
         </Link>
