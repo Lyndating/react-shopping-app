@@ -55,11 +55,13 @@
     margin-right: 10px;
 }
 
-.login_form form > button {
-    background-color: #131921;
+.login_form form > .signIn-btn {
     color: white;
-    width: 150px;
-    font-size: 20px;
+    background-color: #131921;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .sign_up {
@@ -71,9 +73,90 @@
     margin: 10px 0;
 }
 
-.sign_up .signUp-btn {
-    background-color: #131921;
+.sign_up .loginform_signUp-btn {
     color: white;
-    width: 150px;
+    background-color: #131921;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+/* signup form */
+
+.signup_form {
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+}
+
+.sign_up .signupform_login-btn {
+    color: white;
+    background-color: #131921;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.signup_form>h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup_form form>h3 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.signup_form form>input {
+    height: 40px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 100%;
     font-size: 20px;
 }
+
+.signup_form form>.signup_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.signup_form form>.signup_checkbox>input {
+    height: 18px;
+    margin-right: 10px;
+}
+
+.signup_form form > .signUp-btn {
+    color: white;
+    background-color: #131921;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.sign_up{
+    margin-top: 30px;
+}
+
+.loginform_sign_up h5 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.loginform_sign_up .loginform_signUp-btn {
+    color:white;
+    background-color: #131921;
+    width: 100%;
+    font-size: 18px;
+    height: 30px;
+    cursor: pointer;
+} 
