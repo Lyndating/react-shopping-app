@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import './Slider.css';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -15,10 +15,27 @@ const homeSliderImages = [
 
 function Slider() {
     const [currentImage, setCurrentImage] = useState(0);
+    const timeoutRef = useRef(null);
 
+    const resetTimeOut = () => {
+        if(timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+    }
+
+    useEffect(()=>{
+        resetTimeOut();
+        timeoutRef.current = setTimeout(()=>
+            setCurrentImage((prev)=>  prev === homeSliderImages.length -1 ? 0 : prev + 1),
+            5000
+        );
+        return ()=>{
+            resetTimeOut();
+        };
+    }, [currentImage]);
 
   return (
-    <div className='slider_container'>
+    <div className='slider_container' >
         <div className='slider_inner' style={{backgroundImage:`url(${homeSliderImages[currentImage].img})`}}>
             
             <div 
