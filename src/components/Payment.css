@@ -1,0 +1,114 @@
+.back_to_checkout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin:1vh 2vw 5vh 2vw;
+    width: 100%;
+    cursor: pointer;
+}
+
+.back_to_checkout svg {
+    margin-right: 2vw;
+
+}
+.payment_body {
+    width: 100%;
+
+    border-bottom: 2px solid #131921;
+}
+.payment_delivery{
+    display:flex;
+    flex-direction: row;
+    width: 95%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1vh 2vw;
+}
+.payment_delivery>button{
+    background-color: white;
+    border: none;
+}
+
+/* delivery form */
+.delivery_form {
+    display:flex;
+    flex-direction: row;
+    width: 95%;
+    align-items: center;
+    margin: 1vh 2vw;
+}
+
+.delivery_form >label> input{
+    width: 70%;
+    border:none;
+    border-bottom: 1px solid #131921;
+    margin-top: 10px;
+}
+.delivery_form>button {
+    cursor: pointer;
+    background-color: #131921;
+    color:white;
+    height: 30px;
+}
+.delivery_info_show {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 1vh 5vw;
+    padding: 10px;
+    font-size: 12px;
+    background-color: #e2e3e4;
+    border-radius: 4px;
+}
+.delivery_info_hide {
+    display: none;
+}
+
+.payment_items {
+    display:block;
+}
+
+/* payment checkout Product list */
+.payment_items .checkout_product .checkout_product_info >button {
+    display: none;
+}
+
+/* payment footer */
+
+.payment_section {
+    display:flex;
+    flex-direction: column;
+    margin: 2vh 2vw;
+    
+}
+.payment_total_amount {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2vh;
+    padding: 2vh 0;
+    border-bottom: 1px solid #c3c4c5;
+}
+
+/* payment billing part */
+.payment_nextstep_show {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-end;
+}
+.payment_nextstep_show> button {
+    margin-top: 50px;
+    background-color: #131921;
+    color: white;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.payment_nextstep_hide {
+    display: none;
+}
