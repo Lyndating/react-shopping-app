@@ -6,6 +6,10 @@ import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../helper/StateProvider';
 import {subtotalAmount} from '../helper/reducer';
 import CheckoutProduct from './CheckoutProduct';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
+import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+
 
 const Checkout = (props)=> {
     let navigate = useNavigate();
@@ -41,6 +45,7 @@ const Checkout = (props)=> {
                 <div className='checkout_body'>
                     {basket.map(item => (
                         <CheckoutProduct
+                            key={item.id}
                             id={item.id}
                             brand={item.brand}
                             title={item.title}
@@ -51,10 +56,23 @@ const Checkout = (props)=> {
                     ))} 
                 </div>
                 <div className='checkout_footer'>
-                    <h2 className='checkout_title'>Subtotal</h2>
-                    <Subtotal/> 
-                </div >
-                    
+                    <div className='checkout_delivery_icon'>
+                        <p>Free Delivery</p>
+                        <p><LocalShippingOutlinedIcon/>
+                        <StorefrontOutlinedIcon/></p>
+                        {/* <a className='select-arrow'><KeyboardArrowDownOutlinedIcon/></a> */}
+                    </div>
+                    <div className='checkout_total'>
+                        <h2 className='checkout_title'>Subtotal</h2>
+                        <Subtotal/> 
+                    </div >
+                    <div className='checkout_delivery_info'>
+                        <p>Estimated Delivery $0</p>
+
+                    </div>
+                    <button onClick={()=>navigate('/payment')}>CONTINUE TO CHECKOUT</button>
+                </div>
+
             </div>
         }
     </>         

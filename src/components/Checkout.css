@@ -114,14 +114,46 @@
 
 /* checkout footer */
 .checkout_footer {
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 1vw;
+    margin-bottom: 20px;
+}
+.checkout_total {
     border-top: 2px solid #131921;
     display: flex;
     flex-direction: row;
-    padding: 1vh 1vw;
+
     justify-content: space-between;
 
 }
-.checkout_footer h3 {
+.checkout_total h3 {
     width: 70%;
 
+}
+.checkout_delivery_icon {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.checkout_delivery_icon svg {
+    margin: 0 10px;
+    color: #131921;
+}
+.checkout_delivery_icon a {
+    width: 30px;
+    height: 30px;
+}
+.checkout_footer > button {
+    margin-top: 50px;
+    background-color: #131921;
+    color: white;
+    height: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 0 20px;
+    cursor: pointer;
 }
