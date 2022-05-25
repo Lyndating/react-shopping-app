@@ -1,0 +1,36 @@
+.footer {
+    background-color: #131921;
+    display: flex;
+    box-sizing: border-box;
+    color: white;
+    padding: 2vh 2vw;
+    flex-direction: row;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    margin-top: auto;
+}
+.footer .footer_info {
+    display: flex;
+    width: 50%;
+}
+
+.footer .footer_signup {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: flex-end;
+}
+.footer .footer_signup>p {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0 10px;
+}
+
+.footer .footer_signup > button {
+    background-color: #131921;
+    border: none;
+    color: white;
+    border-bottom: 1px solid white;
+}
