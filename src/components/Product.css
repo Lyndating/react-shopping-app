@@ -7,10 +7,13 @@
     margin: 10px;
     padding: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     min-width: 100px;
     background-color: white;
     z-index: 1;
+    border: 1px solid #131921;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 .product_info {
     height: 100px;
@@ -24,11 +27,19 @@
 }
 
 .product > button {
-    background-color: orange;
+    background-color: #131921;
     border: 1px solid;
     margin-top: 10px;
-    border-color: rgb(219, 159, 49);
-    color: black;
+    border-color: #131021;
+    color: white;
+    height: 30px;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.product > button:hover {
+    background-color: #f5f5f5;
+    color: #131921;
 }
 
 .product_price{
