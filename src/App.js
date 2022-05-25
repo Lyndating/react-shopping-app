@@ -10,8 +10,10 @@ import Checkout from './components/Checkout';
 import Login from './components/Login';
 import Payment from './components/Payment';
 import {useStateValue} from './helper/StateProvider';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 
-
+const stripePromise = loadStripe('pk_test_51L3HT9FAatdIn9qmzTsy63x6vfYyietEgvALSrfk9qdg6tAJZZWbnUEtzrJHJLJVVv0B6LvrA7euGNEVA5D93GAe00cE7sZdIA');
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -31,7 +33,8 @@ function App() {
           })
         }
       });
-  },[])
+  },[]);
+
 
   return (
     <Router>
@@ -40,7 +43,12 @@ function App() {
           <Route exact path="/" element={[<Header/>,<Home/>,<Footer/>]}/>
           <Route path="/products/:id" element={[<Header/>,<ProductShow/>,<Footer/>]}/>
           <Route path="/checkout" element={[<Header/>,<Checkout/>,<Footer/>]}/>
-          <Route path="/payment" element={[<Header/>,<Payment/>,<Footer/>]}/>
+          <Route path="/payment" element={[
+            <Header/>,
+            <Elements stripe={stripePromise} >
+              <Payment/>
+            </Elements>,
+            <Footer/>]}/>
           <Route path="/login" element={[<Login/>,<Footer/>]}/>
         </Routes>
       </div>

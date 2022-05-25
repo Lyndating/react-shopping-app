@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStateValue } from '../helper/StateProvider';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 import './Payment.css';
 import CheckoutProduct from './CheckoutProduct';
+import CurrencyFormat from 'react-currency-format';
 import Subtotal from './Subtotal';
+import {CardElement, useStripe,useElements,PaymentElement}from '@stripe/react-stripe-js';
+import { KeyboardReturnOutlined } from '@mui/icons-material';
+import { subtotalAmount } from '../helper/reducer';
+import axios from 'axios';
 
 const Payment = () => {
     const [{basket,user,address},dispatch] = useStateValue();
-    console.log(basket, user, address);
-    const [deliveryAddress,setDeliveryAddress] = useState(false);
-    const [infoShow, setInfoShow] = useState(false);
-    const [cardShow, setCardShow] = useState(false);
     const [states, setStates] = useState({
         address: '',
         contact: '',
         first_name: '',
         last_name: '',
     });
+
+    const [deliveryAddress,setDeliveryAddress] = useState(false);
+    const [infoShow, setInfoShow] = useState(false);
+    const [cardShow, setCardShow] = useState(false);
+
+    const [btndisabled, setBtnDisabled] = useState(true);
+    const [processing, setProcessing] = useState("");
+    const [succeed, setSucceed] = useState(false);
+    const [error, setError] = useState('');
     
+
     const navigate = useNavigate();
 
+    const [clientSecret, setClientSecret] = useState(true);
+    const stripe = useStripe();
+    const elements = useElements();
+
+    // handle all the changes in delivery address form
     const handleChange = (e) => {
         setStates((prev)=>({...prev, [e.target.name]:e.target.value}));
     }
 
+    // enter delivery address
     const addressConfirm = (e)=>{
         e.preventDefault();
-        console.log('clicked', e.target.value);
         setDeliveryAddress(false);
         setInfoShow(true);        
         dispatch({
@@ -42,7 +58,7 @@ const Payment = () => {
         });
     };
 
-
+    // open or close delivery section downdown form
     let delivery_info_ClassStyle;
     if (infoShow && states.address){
         delivery_info_ClassStyle="delivery_info_show";
@@ -57,6 +73,7 @@ const Payment = () => {
         payment_process_ClassStyle="payment_nextstep_hide";
     }
     
+    // disabled next step if delivery address is empty
     const handleBilling=()=>{
         if (address === null) {
             alert("Please confirm delivery address!");
@@ -64,6 +81,31 @@ const Payment = () => {
             setCardShow(true);
         }
 
+    }
+
+    // fetches a payment intent and captures the client secret
+    // useEffect(()=>{
+    //     const getClientSecret = aysnc (()=>{
+    //         const response = await axios({
+    //             method: "POST",
+    //             url:`/payments/create?total=${subtotalAmount(basket)*100}`
+    //         });
+            
+    //     }) 
+    //     getClientSecret();
+    // },[basket]);
+
+    // submit the payment form
+    const paymentSubmit = async (e)=>{
+        e.preventDefault();
+        setProcessing(true);
+        // const payload = await stripe
+        
+    }
+    // payment process throw error 
+    const handleCardChange = (e)=>{
+        setBtnDisabled(e.empty);
+        setError(e.error? e.error.message : '');
     }
 
   return (
@@ -166,6 +208,26 @@ const Payment = () => {
                     <h3>Payment Method</h3>
                     </div>
                     <div className='payment_details'>
+                        <form onSubmit={paymentSubmit}>
+                            <div className='card_details'>
+                                <CardElement onChange={handleCardChange}/>
+                            </div>
+                            <div className='price_container'>
+                                <CurrencyFormat
+                                    renderText={(value)=> (
+                                    <>
+                                        <h3>Order Total: <strong>{`${value}`}</strong></h3>
+                                    </>
+                                    )}
+                                decimalScale={2}
+                                value={subtotalAmount(basket)}
+                                displayType='text'
+                                thousandSeparator={true}
+                                prefix={"$"}/>
+                            </div>
+                            <button disabled={btndisabled || process || succeed }>{process? <p>Processing</p> : "SUBMIT" }</button>
+                                <span></span>
+                        </form>
                     </div>
                 </div>
                 }
