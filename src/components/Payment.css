@@ -151,10 +151,13 @@
 }
 .price_container {
     margin: 2vh 0 ;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
 }
-
 .payment_step .payment_details>form>button {
-    margin-top: 50px;
+    
     background-color: #131921;
     color: white;
     height: 40px;
@@ -162,4 +165,18 @@
     font-size: 18px;
     padding: 0 20px;
     cursor: pointer;
+}
+
+.card-error {
+    color: red;
+    font-size: 15px;
+    margin: 50px 0 20px 0;
+}
+.result_message {
+    font-size: 15px;
+    font-weight: 600;
+
+}
+.result_message_hide {
+    display: none;
 }

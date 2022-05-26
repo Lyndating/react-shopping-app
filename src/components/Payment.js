@@ -7,7 +7,7 @@ import './Payment.css';
 import CheckoutProduct from './CheckoutProduct';
 import CurrencyFormat from 'react-currency-format';
 import Subtotal from './Subtotal';
-import {CardElement, useStripe,useElements,PaymentElement}from '@stripe/react-stripe-js';
+import {CardElement, CardNumberElement, CardExpiryElement,CardCvcElement, useStripe,useElements}from '@stripe/react-stripe-js';
 import { KeyboardReturnOutlined } from '@mui/icons-material';
 import { subtotalAmount } from '../helper/reducer';
 import axios from 'axios';
@@ -21,21 +21,18 @@ const Payment = () => {
         last_name: '',
     });
 
-    const [deliveryAddress,setDeliveryAddress] = useState(false);
-    const [infoShow, setInfoShow] = useState(false);
-    const [cardShow, setCardShow] = useState(false);
-
-    const [btndisabled, setBtnDisabled] = useState(true);
-    const [processing, setProcessing] = useState("");
-    const [succeed, setSucceed] = useState(false);
-    const [error, setError] = useState('');
-    
-
     const navigate = useNavigate();
 
-    const [clientSecret, setClientSecret] = useState(true);
-    const stripe = useStripe();
-    const elements = useElements();
+
+    // show delivery address form 
+    const [deliveryAddress,setDeliveryAddress] = useState(false);
+    const [infoShow, setInfoShow] = useState(false);
+    let delivery_info_ClassStyle;
+    if (infoShow && states.address){
+        delivery_info_ClassStyle="delivery_info_show";
+    }else{
+        delivery_info_ClassStyle="delivery_info_hide";
+    }
 
     // handle all the changes in delivery address form
     const handleChange = (e) => {
@@ -58,20 +55,16 @@ const Payment = () => {
         });
     };
 
+    
+    // show payment card form 
+    const [cardShow, setCardShow] = useState(false);
     // open or close delivery section downdown form
-    let delivery_info_ClassStyle;
-    if (infoShow && states.address){
-        delivery_info_ClassStyle="delivery_info_show";
-    }else{
-        delivery_info_ClassStyle="delivery_info_hide";
-    }
-
-    let payment_process_ClassStyle;
-    if(!cardShow){
-        payment_process_ClassStyle="payment_nextstep_show";
-    }else{
-        payment_process_ClassStyle="payment_nextstep_hide";
-    }
+    // let payment_process_ClassStyle;
+    // if(!cardShow){
+    //     payment_process_ClassStyle="payment_nextstep_show";
+    // }else{
+    //     payment_process_ClassStyle="payment_nextstep_hide";
+    // }
     
     // disabled next step if delivery address is empty
     const handleBilling=()=>{
@@ -83,26 +76,43 @@ const Payment = () => {
 
     }
 
-    // fetches a payment intent and captures the client secret
-    // useEffect(()=>{
-    //     const getClientSecret = aysnc (()=>{
-    //         const response = await axios({
-    //             method: "POST",
-    //             url:`/payments/create?total=${subtotalAmount(basket)*100}`
-    //         });
-            
-    //     }) 
-    //     getClientSecret();
-    // },[basket]);
+    // setup state to track client secret, errors and checkout status
+    const [btndisabled, setBtnDisabled] = useState(true);
+    const [processing, setProcessing] = useState("");
+    const [succeed, setSucceed] = useState(false);
+    const [error, setError] = useState(null);
+    const [clientSecret, setClientSecret] = useState(true);
+    // store reference to stripe
+    const stripe = useStripe();
+    const elements = useElements();
+
+    //create paymentintent and fetch client secret as soon as the page loads
+    //whenever the basket changed, make the request and update the clientSecret to charge the updated value.
+    useEffect(()=>{
+        const getClientSecret = async ()=>{
+            const res = await axios({
+                method: "post",
+                url:`/payments/create?total=${subtotalAmount(basket)*100}`
+            }).then((res)=>{
+                setClientSecret(res.data.clientSecret);
+            });
+        }
+        getClientSecret();
+    },[basket]);
 
     // submit the payment form
     const paymentSubmit = async (e)=>{
         e.preventDefault();
         setProcessing(true);
-        // const payload = await stripe
+        //confirm card payment, passing clientSecret
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement),
+            }
+        }).then((resp)=> {console.log(resp)});
         
     }
-    // payment process throw error 
+    // listen for changes in the CarElement and display any errors as the customer types their card details
     const handleCardChange = (e)=>{
         setBtnDisabled(e.empty);
         setError(e.error? e.error.message : '');
@@ -196,7 +206,7 @@ const Payment = () => {
                     <h2>TOTAL</h2>
                     <Subtotal/>
                 </div>
-                <div className={payment_process_ClassStyle}>
+                <div className={!cardShow? "payment_nextstep_show" : "payment_nextstep_hide"}>
                     <button 
                         onClick={handleBilling}
                     >CONTINUE TO BILLING</button>
@@ -209,8 +219,11 @@ const Payment = () => {
                     </div>
                     <div className='payment_details'>
                         <form onSubmit={paymentSubmit}>
-                            <div className='card_details'>
+                            <div className='card_details'>  
                                 <CardElement onChange={handleCardChange}/>
+                                {/* <CardNumberElement onChange={handleCardChange}/>
+                                <CardCvcElement onChange={handleCardChange}/>
+                                <CardExpiryElement onChange={handleCardChange}/> */}
                             </div>
                             <div className='price_container'>
                                 <CurrencyFormat
@@ -225,8 +238,14 @@ const Payment = () => {
                                 thousandSeparator={true}
                                 prefix={"$"}/>
                             </div>
-                            <button disabled={btndisabled || process || succeed }>{process? <p>Processing</p> : "SUBMIT" }</button>
-                                <span></span>
+                            {error &&
+                                    <div className='card-error' role='alert'>{error}</div>
+                            }
+                            <button disabled={btndisabled || processing || succeed }>{processing? <p>Processing</p> : "SUBMIT" }</button>
+                                {/* show any error that happens when processing  the payment */}
+
+                                {/* show a success message upon completion */}
+                                <p className={succeed? 'reasult_message' : 'result_message_hide'}>Payment Succeeded!</p>
                         </form>
                     </div>
                 </div>
