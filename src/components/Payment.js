@@ -93,13 +93,15 @@ const Payment = () => {
             const res = await axios({
                 method: "post",
                 url:`/payments/create?total=${subtotalAmount(basket)*100}`
-            }).then((res)=>{
-                setClientSecret(res.data.clientSecret);
-            });
+            })
+            console.log('this is response', res);
+            setClientSecret(res.data.clientSecret);
+            
         }
         getClientSecret();
     },[basket]);
 
+    console.log("this is client secret",clientSecret);
     // submit the payment form
     const paymentSubmit = async (e)=>{
         e.preventDefault();
@@ -110,10 +112,19 @@ const Payment = () => {
                 card: elements.getElement(CardElement),
             }
         }).then((resp)=> {
-            console.log(resp);
+            // console.log(resp);
+
+            // re-set to the initial state
             setSucceed(true);
             setError(null);
             setProcessing(false);
+
+            // clear the basket
+            dispatch({
+                type: "empty_basket",
+            })
+
+            // redirect to order page upon payment completion
             navigate('/orders', {replace:true});
         });
         
