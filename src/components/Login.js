@@ -1,7 +1,7 @@
 import { Checkbox } from '@mui/material';
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import { auth } from '../firebase';
+import { auth } from "../firebase-config";
 import "./Login.css";
 
 const Login = () => {
