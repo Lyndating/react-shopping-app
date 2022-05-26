@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {auth} from './firebase';
+import {auth} from  "./firebase-config";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,6 +9,7 @@ import ProductShow from './components/ProductShow';
 import Checkout from './components/Checkout';
 import Login from './components/Login';
 import Payment from './components/Payment';
+import Orders from './components/Orders';
 import {useStateValue} from './helper/StateProvider';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
@@ -50,6 +51,7 @@ function App() {
             </Elements>,
             <Footer/>]}/>
           <Route path="/login" element={[<Login/>,<Footer/>]}/>
+          <Route path="/orders" element={[<Header/>,<Orders/>,<Footer/>]}/>
         </Routes>
       </div>
     </Router>
