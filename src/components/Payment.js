@@ -11,6 +11,7 @@ import {CardElement, CardNumberElement, CardExpiryElement,CardCvcElement, useStr
 import { KeyboardReturnOutlined } from '@mui/icons-material';
 import { subtotalAmount } from '../helper/reducer';
 import axios from '../axios';
+import {db} from '../firebase-config';
 
 const Payment = () => {
     const [{basket,user,address},dispatch] = useStateValue();
@@ -20,7 +21,7 @@ const Payment = () => {
         first_name: '',
         last_name: '',
     });
-
+    console.log(user);
     const navigate = useNavigate();
 
 
@@ -112,7 +113,14 @@ const Payment = () => {
                 card: elements.getElement(CardElement),
             }
         }).then((resp)=> {
-            // console.log(resp);
+            console.log(resp);
+            // once the payment succeed, pass the order data to firebase db
+            db.collection("users").doc(user?.uid).collection("orders").doc(resp.paymentIntent.id).set({
+                basket: basket,
+                amount: resp.paymentIntent.amount,
+                delivery: address,
+                created: resp.paymentIntent.created,
+            })
 
             // re-set to the initial state
             setSucceed(true);
