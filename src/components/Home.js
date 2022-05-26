@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {db} from '../firebase';
 import "./Home.css";
 import Product from './Product';
 import Slider from './Slider';
 
 
 function Home() {
+
   return (
     <div className='home'>
         <div className='home_container'>

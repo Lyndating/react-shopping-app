@@ -13,7 +13,7 @@ import {useStateValue} from './helper/StateProvider';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-const stripePromise = loadStripe('pk_test_51L3HT9FAatdIn9qmzTsy63x6vfYyietEgvALSrfk9qdg6tAJZZWbnUEtzrJHJLJVVv0B6LvrA7euGNEVA5D93GAe00cE7sZdIA');
+const promise = loadStripe('pk_test_51L3HT9FAatdIn9qmzTsy63x6vfYyietEgvALSrfk9qdg6tAJZZWbnUEtzrJHJLJVVv0B6LvrA7euGNEVA5D93GAe00cE7sZdIA');
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -45,7 +45,7 @@ function App() {
           <Route path="/checkout" element={[<Header/>,<Checkout/>,<Footer/>]}/>
           <Route path="/payment" element={[
             <Header/>,
-            <Elements stripe={stripePromise} >
+            <Elements stripe={promise} >
               <Payment/>
             </Elements>,
             <Footer/>]}/>
