@@ -1,0 +1,124 @@
+[debug] [2022-05-26T05:48:20.058Z] ----------------------------------------------------------------------
+[debug] [2022-05-26T05:48:20.059Z] Command:       /opt/homebrew/Cellar/node/18.1.0/bin/node /Users/tingluo/.npm-packages/bin/firebase emulators:start
+[debug] [2022-05-26T05:48:20.059Z] CLI Version:   11.0.0
+[debug] [2022-05-26T05:48:20.059Z] Platform:      darwin
+[debug] [2022-05-26T05:48:20.059Z] Node Version:  v18.1.0
+[debug] [2022-05-26T05:48:20.060Z] Time:          Thu May 26 2022 15:48:20 GMT+1000 (Australian Eastern Standard Time)
+[debug] [2022-05-26T05:48:20.060Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-26T05:48:20.094Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-26T05:48:20.094Z] > authorizing via signed-in user (lynn.ting.luo@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting"}}
+[debug] [2022-05-26T05:48:20.102Z] [hub] writing locator at /var/folders/81/n1mxfjg10ld9cv9fnj8jg8k80000gn/T/hub-shopping-react-app-deecf.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, pubsub, storage\u001b[22m"}}
+[warn] ⚠  Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Your requested \"node\" version \"16\" doesn't match your global version \"18\". Using node@18 from host."}}
+[debug] [2022-05-26T05:48:20.110Z] defaultcredentials: writing to file /Users/tingluo/.config/firebase/lynn_ting.luo_gmail.com_application_default_credentials.json
+[debug] [2022-05-26T05:48:20.114Z] Setting GAC to /Users/tingluo/.config/firebase/lynn_ting.luo_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/tingluo/.config/firebase/lynn_ting.luo_gmail.com_application_default_credentials.json"}}
+[debug] [2022-05-26T05:48:20.115Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/adminSdkConfig [none]
+[debug] [2022-05-26T05:48:20.604Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/adminSdkConfig 200
+[debug] [2022-05-26T05:48:20.604Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/adminSdkConfig {"projectId":"shopping-react-app-deecf","databaseURL":"https://shopping-react-app-deecf-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"shopping-react-app-deecf.appspot.com","locationId":"australia-southeast1"}
+[debug] [2022-05-26T05:48:20.631Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/shopping-react-app-deecf/sites 
+[debug] [2022-05-26T05:48:22.014Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/shopping-react-app-deecf/sites 200
+[debug] [2022-05-26T05:48:22.014Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/shopping-react-app-deecf/sites {"sites":[{"name":"projects/shopping-react-app-deecf/sites/shopping-react-app-deecf","defaultUrl":"https://shopping-react-app-deecf.web.app","appId":"1:59008935241:web:12c8e671043308f1062698","type":"DEFAULT_SITE"}]}
+[debug] [2022-05-26T05:48:22.015Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/webApps/1:59008935241:web:12c8e671043308f1062698/config [none]
+[debug] [2022-05-26T05:48:23.283Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/webApps/1:59008935241:web:12c8e671043308f1062698/config 200
+[debug] [2022-05-26T05:48:23.284Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/shopping-react-app-deecf/webApps/1:59008935241:web:12c8e671043308f1062698/config {"projectId":"shopping-react-app-deecf","appId":"1:59008935241:web:12c8e671043308f1062698","databaseURL":"https://shopping-react-app-deecf-default-rtdb.asia-southeast1.firebasedatabase.app","storageBucket":"shopping-react-app-deecf.appspot.com","locationId":"australia-southeast1","apiKey":"AIzaSyA-o_rtbPmH_6z6qK77Er48mNxS92A3G2k","authDomain":"shopping-react-app-deecf.firebaseapp.com","messagingSenderId":"59008935241"}
+[info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:3001 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:3001\u001b[22m\u001b[24m"}}
+[debug] [2022-05-26T05:48:23.401Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-05-26T05:48:23.401Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-05-26T05:48:23.401Z] Starting Emulator UI with command {"binary":"node","args":["--dns-result-order=ipv4first","/Users/tingluo/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"--dns-result-order=ipv4first\",\"/Users/tingluo/.cache/firebase/emulators/ui-v1.7.0/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-05-26T05:48:23.472Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] i  functions: Watching "/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions\" for Cloud Functions..."}}
+[debug] [2022-05-26T05:48:23.658Z] Validating nodejs source
+[debug] [2022-05-26T05:48:24.307Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "force": "^0.0.3",
+    "stripe": "^9.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-05-26T05:48:24.307Z] Building nodejs source
+[debug] [2022-05-26T05:48:24.307Z] Analyzing nodejs backend spec
+[debug] [2022-05-26T05:48:24.309Z] Could not find functions.yaml. Must use http discovery
+[debug] [2022-05-26T05:48:24.634Z] Serving at port 9005
+
+[debug] [2022-05-26T05:48:24.749Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2022-05-26T05:48:24.754Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions[us-central1-api]: http function initialized (http://localhost:5001/shopping-react-app-deecf/us-central1/api). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/shopping-react-app-deecf/us-central1/api)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ localhost:5001 │ http://localhost:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Hosting   │ localhost:3001 │ n/a                             │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2022-05-26T05:52:37.713Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-05-26T05:52:37.727Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-05-26T05:52:37.740Z] Accepted request GET /shopping-react-app-deecf/us-central1/api --> us-central1-api
+[debug] [2022-05-26T05:52:37.820Z] [worker-pool] addWorker(us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-api)"}}
+[debug] [2022-05-26T05:52:37.823Z] [worker-pool] Adding worker with key us-central1-api, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-api, total=1"}}
+[debug] [2022-05-26T05:52:37.823Z] [worker-pool] submitWork(triggerId=us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-api)"}}
+[debug] [2022-05-26T05:52:37.824Z] [worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: Assigning socketPath: /var/folders/81/n1mxfjg10ld9cv9fnj8jg8k80000gn/T/fire_emu_846.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: Assigning socketPath: /var/folders/81/n1mxfjg10ld9cv9fnj8jg8k80000gn/T/fire_emu_846.sock"}}
+[debug] [2022-05-26T05:52:37.824Z] [worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: BUSY"}}
+[debug] [2022-05-26T05:52:38.786Z] [runtime-status] [846] Functions runtime initialized. {"cwd":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions","node_version":"18.1.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Functions runtime initialized. {\"cwd\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions\",\"node_version\":\"18.1.0\"}"}}
+[debug] [2022-05-26T05:52:38.786Z] [runtime-status] [846] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Disabled runtime features: undefined"}}
+[debug] [2022-05-26T05:52:38.787Z] [runtime-status] [846] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.2.0","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.787Z] [runtime-status] [846] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.2","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.2\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.788Z] [runtime-status] [846] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-05-26T05:52:38.788Z] [runtime-status] [846] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.2","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.2\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.849Z] [runtime-status] [846] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-05-26T05:52:38.850Z] [runtime-status] [846] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.21.2","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.21.2\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-05-26T05:52:38.851Z] [runtime-status] [846] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.2","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.2\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.852Z] [runtime-status] [846] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.2.0","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.852Z] [runtime-status] [846] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.21.2","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.21.2\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-05-26T05:52:38.852Z] [runtime-status] [846] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.2.0","resolution":"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.2.0\",\"resolution\":\"/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-05-26T05:52:38.934Z] [runtime-status] [846] Beginning invocation function api! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Beginning invocation function api!"}}
+[info] i  functions: Beginning execution of "api" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Beginning execution of \"api\""}}
+[debug] [2022-05-26T05:52:38.941Z] [runtime-status] [846] Running api in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Running api in signature http"}}
+[debug] [2022-05-26T05:52:38.941Z] [runtime-status] [846] Attempting to listen to socketPath: /var/folders/81/n1mxfjg10ld9cv9fnj8jg8k80000gn/T/fire_emu_846.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Attempting to listen to socketPath: /var/folders/81/n1mxfjg10ld9cv9fnj8jg8k80000gn/T/fire_emu_846.sock"}}
+[debug] [2022-05-26T05:52:38.946Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-05-26T05:52:38.949Z] [functions] Got req.url=/shopping-react-app-deecf/us-central1/api, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/shopping-react-app-deecf/us-central1/api, mapping to path=/"}}
+[debug] [2022-05-26T05:52:38.956Z] [runtime-status] [846] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Ephemeral server handling GET request"}}
+[debug] [2022-05-26T05:52:38.964Z] [runtime-status] [846] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"[runtime-status] [846] Ephemeral server survived."}}
+[info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
+[debug] [2022-05-26T05:52:38.965Z] [worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-b6b7eb6e-3b6f-492f-908e-2ac347033d7a]: IDLE"}}
+[debug] [2022-05-26T05:52:38.966Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-05-26T05:52:39.505Z] Functions emulator received unknown request at path /favicon.ico
