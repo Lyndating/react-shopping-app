@@ -10,7 +10,7 @@ import Subtotal from './Subtotal';
 import {CardElement, CardNumberElement, CardExpiryElement,CardCvcElement, useStripe,useElements}from '@stripe/react-stripe-js';
 import { KeyboardReturnOutlined } from '@mui/icons-material';
 import { subtotalAmount } from '../helper/reducer';
-import axios from 'axios';
+import axios from '../axios';
 
 const Payment = () => {
     const [{basket,user,address},dispatch] = useStateValue();
@@ -109,7 +109,13 @@ const Payment = () => {
             payment_method: {
                 card: elements.getElement(CardElement),
             }
-        }).then((resp)=> {console.log(resp)});
+        }).then((resp)=> {
+            console.log(resp);
+            setSucceed(true);
+            setError(null);
+            setProcessing(false);
+            navigate('/orders', {replace:true});
+        });
         
     }
     // listen for changes in the CarElement and display any errors as the customer types their card details
