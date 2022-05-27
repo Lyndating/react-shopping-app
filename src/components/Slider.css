@@ -17,7 +17,30 @@
     background-size: cover;
     background-position: center; 
     display: flex;
+    /* background-position: fixed; */
+    /* animation: blender 5s linear 50ms;
+    opacity:1; */
 }
+/* @keyframes blender {
+    0% {
+        opacity: 0.2;
+        transform: translate(-25px);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+        transform: translate(-10px);
+    }
+} */
+
 
 .slider_inner .slider_left_arrow {
     width:8%;
