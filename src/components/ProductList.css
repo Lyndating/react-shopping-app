@@ -1,0 +1,23 @@
+.category_title {
+    margin: 2vh auto;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 1px solid #e2e3e4;
+}
+/* .category_product_rows {
+    display:flex;
+    flex-direction: column;
+    margin: 3vh 1vw;
+} */
+
+.category_product_list {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px 10px;
+    padding: 10px;
+    margin: 1vh 10px;
+}
+.category_product_list > .product {
+    margin: 0 20px;
+}
