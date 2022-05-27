@@ -1,13 +1,15 @@
 import React from 'react';
 import Product from './Product';
 import "./ProductList.css";
-import { useLocation} from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import { useStateValue } from '../helper/StateProvider';
 
 const ProductList = () => {
     const location = useLocation();
     const [{products}, dispatch] = useStateValue();
     console.log(location.state);
+
+
 
   return (
     <div>
@@ -18,6 +20,7 @@ const ProductList = () => {
             <div className='category_products_rows'>
                 <div className='category_product_list'>
                     {location.state.items.map((list)=>(
+                   <Link to={`/products/${list.id}`}>
                     <Product
                     key={list.id}
                     title={list.title}
@@ -26,6 +29,7 @@ const ProductList = () => {
                     rating={list.rating}
                     price={list.price}
                     />
+                    </Link>
 
             ))}
             </div>
