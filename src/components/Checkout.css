@@ -85,6 +85,10 @@
     vertical-align: middle;
     cursor: pointer;
 }
+
+.checkout_product_image >.checkout_product_img {
+    width: 100px;
+}
 .checkout_product_info {
     width: 40%;
 
