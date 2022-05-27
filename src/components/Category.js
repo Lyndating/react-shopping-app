@@ -1,16 +1,21 @@
 import React from 'react';
 import './Category.css';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-const Category = ({id,title,image}) => {
+const Category = ({id,title,image,items}) => {
+    console.log("category",items);
+    const navigate = useNavigate();
+    const toProductList = ()=> {
+        navigate(`/category/${id}`,{state: {id: id, title: title, items: items}})
+    }
   return (
     <div className='category_container'>
-        <Link to={`/category/${title}`}>
+        <a onClick={()=> toProductList()}>
             <div className='category_image'>
                 <img src={image} alt='category_image'/>
             </div>
             <p>{title}</p>
-        </Link>
+        </a>
 
     </div>
   )
