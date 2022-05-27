@@ -42,11 +42,12 @@ function Header() {
           <span className='header_optionLineTwo'>{signInState}</span>
         </div>
         </Link>
+        <Link to={"/orders"}>
         <div className='header_option'>
           <span className='header_optionLineOne'>Return</span>
           <span className='header_optionLineTwo'>& Orders </span>
         </div>
-
+        </Link>
         <div className='header_optionShoppingBag'>
           <Link to="/checkout">
           {!basket || basket.length === 0 &&
