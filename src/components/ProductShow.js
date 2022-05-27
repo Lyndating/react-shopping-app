@@ -1,12 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 
-const ProductShow = (props) => {
-    const params = useParams();
-    console.log(params.id);
+const ProductShow = () => {
+    const location = useLocation();
+
+    let params = useParams();
   return (
-    <div>ProductShow</div>
+    <div key={params.id}>
+        <p>{location.state.brand}</p>
+        <p>{location.state.title}</p>
+        <img src={location.state.image}/>
+        <p>${location.state.price}</p>
+
+    </div>
   )
 }
 
