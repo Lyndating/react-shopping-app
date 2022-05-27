@@ -1,7 +1,9 @@
+
 export const initialState = {
     basket: [],
     user: null,
-    address: null
+    address: null,
+    products: null,
 };
 
 export const subtotalAmount = (basket) =>{
@@ -39,10 +41,12 @@ const reducer = (state, action) => {
                 ...state, user: action.user
             }
         case "add_address":
-            console.log("before: ", state, action.item);
             let a = {...state, address: action.item}
-            console.log("after: ", state, a);
             return a
+        case "add_products":
+            return {
+                ...state, products: action.products
+            }
         default:
             return state;
     }
