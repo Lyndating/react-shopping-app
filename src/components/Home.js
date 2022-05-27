@@ -1,88 +1,96 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {db} from '../firebase-config';
 import "./Home.css";
 import Product from './Product';
 import Slider from './Slider';
-
-
+import {collection, getDocs} from 'firebase/firestore';
+import CategoryList from './CategoryList';
+import { useStateValue } from '../helper/StateProvider';
 
 function Home() {
+    const [productList, setProductList] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [{user,products}, dispatch] = useStateValue();
+
+    // fetch all the product from db once the page load
+    const productCollectionRef = collection(db, "Products");
+    const categoryCollectionRef = collection(db, 'categories');
+    useEffect(()=>{
+        const getCategories = async ()=>{
+        const data = await getDocs(categoryCollectionRef);
+            setCategories(data.docs.map((doc)=>({...doc.data(), id: doc.id})));
+            // setCategories(data.docs.map((((doc)=>(console.log(doc))))));
+        }
+        const getProducts = async ()=> {
+            const data = await getDocs(productCollectionRef);
+            setProductList(data.docs.map((doc)=>({...doc.data(), id: doc.id })))
+        };
+
+        getProducts();
+        getCategories();
+        loadingProduct();
+    }, []);
+
+    const loadingProduct = () => {
+        dispatch({
+            type: 'add_products',
+            products: productList
+        });
+    };
+
+    console.log(products);
+    let productCollection = {};
+    let topRating = [];
+    categories.map((category)=>{
+        productCollection[category.title] =[];
+        productList.map((product)=>{
+            if(product.category === category.title){
+                productCollection[category.title].push(product);
+            }
+    });
+    });
+    for (let i =0; i< productList.length; i += 3){
+        topRating.push(productList.slice(i,i+3));
+    }
+    console.log(productCollection, topRating);
+
+    
 
 
   return (
     <div className='home'>
         <div className='home_container'>
             <Slider className='home_image'/>
-            <div className='home_row'>
-                <Product 
-                    id="1"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
+
+                {topRating.map((list)=>(
+                <div className='topRating_list'>
+                <Product
+                    id={list[0].id}
+                    title={list[0].title}
+                    brand={list[0].brand}
+                    image={list[0].image}
+                    rating={list[0].rating}
+                    price={list[0].price}
                 />
                 <Product
-                    id="2"                    
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
+                    id={list[1].id}
+                    title={list[1].title}
+                    brand={list[1].brand}
+                    image={list[1].image}
+                    rating={list[1].rating}
+                    price={list[1].price}
                 />
                 <Product
-                    id="3"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
+                    id={list[2].id}
+                    title={list[2].title}
+                    brand={list[2].brand}
+                    image={list[2].image}
+                    rating={list[2].rating}
+                    price={list[2].price}
                 />
-            </div>
-            <div className='home_row'>
-                <Product
-                    id="4"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
-                />
-                <Product
-                    id="5"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
-                />
-                <Product
-                    id="6"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
-                />
-            </div>
-            <div className='home_row'>
-                <Product
-                    id="7"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
-                />
-                <Product
-                    id="8"
-                    brand="ROCK YOUR KID"
-                    title="ELSA MAGIC CIRCUS DRESS" 
-                    price={63.96} 
-                    image="https://www.davidjones.com/productimages/cart/1/2390864_21589467_6806640.jpg" 
-                    rating={5}
-                />
-            </div>
+                </div>
+                ))}
+                <CategoryList productCollection={productCollection}/>
         </div>
     </div>
   )
