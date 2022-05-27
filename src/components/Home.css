@@ -7,16 +7,45 @@
 
 .home_row {
     display: flex;
-    flex-direction: row;
-    z-index: 1;
+    justify-content:center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    /* z-index: 1;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 5px; */
+}
+.product_list {
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
 }
 
+.product_list >.topRating_list {
+    /* max-width: calc(100% /3);
+    flex-basis: calc(100% /3);
+    box-sizing:border-box;
+    display: block;
+    margin: 5vh 0;
+    background-color: transparent; */
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    margin-right: 5px;
+    z-index: 1;
+}
+/* 
 .home_image {
     width: 100%;
     z-index: -1;
     margin-bottom: -100px;
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+} */
+.list_title {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    margin: 2vh auto;
 }
-
