@@ -2,6 +2,7 @@ import React from 'react';
 import Category from './Category';
 
 const CategoryList = ({productCollection}) => {
+
   return (
                 <div className='home_row'>
                 <Category
