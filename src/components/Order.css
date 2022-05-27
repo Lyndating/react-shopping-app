@@ -1,0 +1,29 @@
+.order_history_container {
+    display: flex;
+    margin: 1vh 2vw;
+    flex-direction: column;
+}
+
+.order_history_container > .order_history_title {
+    text-align: center;
+    padding: 1vh 0;
+    border-bottom: 1px solid #e2e3e4;
+}
+
+.order_history_container > .empty_order_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+}
+.order_history_container>.empty_order_container > h3{
+    text-align: center;
+    margin: 2vh 0;
+}
+.order_history_container>.empty_order_container>button {
+    background-color: #131921;
+    color: white;
+    width: 25vw;
+    text-align: center;
+    height: 25px;
+}
