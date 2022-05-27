@@ -9,10 +9,12 @@ import ProductShow from './components/ProductShow';
 import Checkout from './components/Checkout';
 import Login from './components/Login';
 import Payment from './components/Payment';
+import ProductList from './components/ProductList';
 import Orders from './components/Orders';
 import {useStateValue} from './helper/StateProvider';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
+
 
 const promise = loadStripe('pk_test_51L3HT9FAatdIn9qmzTsy63x6vfYyietEgvALSrfk9qdg6tAJZZWbnUEtzrJHJLJVVv0B6LvrA7euGNEVA5D93GAe00cE7sZdIA');
 
@@ -42,6 +44,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path="/" element={[<Header/>,<Home/>,<Footer/>]}/>
+          <Route path="/category/:id" element={[<Header/>,<ProductList/>,<Footer/>]}/>
           <Route path="/products/:id" element={[<Header/>,<ProductShow/>,<Footer/>]}/>
           <Route path="/checkout" element={[<Header/>,<Checkout/>,<Footer/>]}/>
           <Route path="/payment" element={[
