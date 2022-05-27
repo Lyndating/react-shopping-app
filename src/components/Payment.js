@@ -87,6 +87,8 @@ const Payment = () => {
     const stripe = useStripe();
     const elements = useElements();
 
+    console.log(basket);
+
     //create paymentintent and fetch client secret as soon as the page loads
     //whenever the basket changed, make the request and update the clientSecret to charge the updated value.
     useEffect(()=>{
@@ -99,6 +101,7 @@ const Payment = () => {
             setClientSecret(res.data.clientSecret);
             
         }
+        
         getClientSecret();
     },[basket]);
 
