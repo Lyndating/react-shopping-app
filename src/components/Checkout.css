@@ -97,7 +97,7 @@
     font-weight: 400;
     margin: 10px 0 30px 0;
 }
-.checkout_product_info button {
+.checkout_product_info .checkout_remove_btn {
     border: none;
     border-bottom: 1px solid #131921;
     background-color: white;
