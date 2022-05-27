@@ -25,7 +25,7 @@
     flex-direction: row; */
     cursor: pointer;
     box-sizing: border-box;
-    padding: 2vh 2vw;
+    padding: 2vh 1vw;
     text-align: center;
     background-color: transparent;
 }
