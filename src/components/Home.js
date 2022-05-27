@@ -10,7 +10,6 @@ import { useStateValue } from '../helper/StateProvider';
 function Home() {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [{user,products}, dispatch] = useStateValue();
 
     // fetch all the product from db once the page load
     const productCollectionRef = collection(db, "Products");
@@ -28,17 +27,9 @@ function Home() {
 
         getProducts();
         getCategories();
-        loadingProduct();
+
     }, []);
 
-    const loadingProduct = () => {
-        dispatch({
-            type: 'add_products',
-            products: productList
-        });
-    };
-
-    console.log(products);
     let productCollection = {};
     let topRating = [];
     categories.map((category)=>{
@@ -49,8 +40,10 @@ function Home() {
             }
     });
     });
-    for (let i =0; i< productList.length; i += 3){
-        topRating.push(productList.slice(i,i+3));
+    const list = productList.filter((product)=> product.top);
+    console.log("hehre",list);
+    for (let i =0; i< list.length; i += 3){
+        topRating.push(list.slice(i,i+3));
     }
     console.log(productCollection, topRating);
 
@@ -61,18 +54,20 @@ function Home() {
     <div className='home'>
         <div className='home_container'>
             <Slider className='home_image'/>
-
-                {topRating.map((list)=>(
-                <div className='topRating_list'>
-                <Product
+            <CategoryList productCollection={productCollection}/>
+            <div className='list_title'>NEW ARRIVALS</div>
+                <div className='product_list'>
+                    {topRating.map((list)=>(
+                    <div className='topRating_list'>
+                    <Product
                     id={list[0].id}
                     title={list[0].title}
                     brand={list[0].brand}
                     image={list[0].image}
                     rating={list[0].rating}
                     price={list[0].price}
-                />
-                <Product
+                    />
+                    <Product
                     id={list[1].id}
                     title={list[1].title}
                     brand={list[1].brand}
@@ -90,7 +85,9 @@ function Home() {
                 />
                 </div>
                 ))}
-                <CategoryList productCollection={productCollection}/>
+                </div>
+
+
         </div>
     </div>
   )
