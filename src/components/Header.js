@@ -8,6 +8,7 @@ import {auth} from '../firebase-config';
 
 function Header() {
   const [{basket, user},dispatch]= useStateValue();
+  console.log(basket);
   let signInState;
   user? signInState="Sign Out" : signInState="Sign In";
 
