@@ -9,6 +9,7 @@ import CheckoutProduct from './CheckoutProduct';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import { getAllItems } from '../helper/storage';
 
 
 const Checkout = ()=> {
@@ -18,7 +19,7 @@ const Checkout = ()=> {
     }
 
     const [{basket, user},dispatch]= useStateValue();
-
+ 
   return (
     <>
         {basket.length===0 && 
