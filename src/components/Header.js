@@ -8,7 +8,6 @@ import {auth} from '../firebase-config';
 
 function Header() {
   const [{basket, user},dispatch]= useStateValue();
-  console.log(basket);
   let signInState;
   user? signInState="Sign Out" : signInState="Sign In";
 
@@ -17,6 +16,14 @@ function Header() {
       auth.signOut();
     }
   }
+  let totalItems = 0;
+  // console.log("this is header", basket);
+  if(basket){
+    basket.map((item)=>{
+      return totalItems += item.qty;
+    });
+  };
+  // console.log(totalItems);
 
   return (
     <div className='header'>
@@ -56,7 +63,7 @@ function Header() {
           {basket.length > 0 &&
             <>
               <ShoppingBagOutlinedIcon/>
-              <span className='header_optionLineTwo header_shoppingCount'>{basket?basket.length:0}</span>
+              <span className='header_optionLineTwo header_shoppingCount'>{basket?totalItems:0}</span>
             </>
 
           }
