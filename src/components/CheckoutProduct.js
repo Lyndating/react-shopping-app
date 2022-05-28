@@ -1,13 +1,43 @@
 import React, {useEffect, useState} from 'react';
 import { useStateValue } from '../helper/StateProvider';
 
-const CheckoutProduct = ({id,image,title,price, brand, qty}) => {
+const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
     const [{basket},dispatch]= useStateValue();
     console.log("here is the basket", basket);
     const removeHandler = () => {
         dispatch({
             type: "remove_from_basket",
             id: id,
+        })
+    }
+    const addItemHandler=()=>{
+        dispatch({
+            type: "add_to_basket",
+            item:{
+                id: id,
+                brand: brand,
+                title: title,
+                image: image,
+                price: price,
+                rating: rating,
+                qty: 1,
+            }
+        })
+    }
+
+    const removeItemHandler =()=>{
+        console.log(qty);
+        dispatch({
+            type: "reduce_from_basket",
+            item:{
+                id: id,
+                brand: brand,
+                title: title,
+                image: image,
+                price: price,
+                rating: rating,
+                qty: qty,
+            }
         })
     }
   return (
@@ -20,9 +50,9 @@ const CheckoutProduct = ({id,image,title,price, brand, qty}) => {
                 <h4 className='checkout_product_title'>{title}</h4>
                 <div className='qty_wrapper'>
                     <span>Qty: </span>
-                    <button>-</button>
-                    <span>{qty}</span>
-                    <button>+</button>                
+                    <button onClick={removeItemHandler}>-</button>
+                    <span> {qty} </span>
+                    <button onClick={addItemHandler}>+</button>                
                 </div>
                 <button className="checkout_remove_btn"onClick={removeHandler}>Remove</button>
 
