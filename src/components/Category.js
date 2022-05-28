@@ -3,7 +3,7 @@ import './Category.css';
 import {useNavigate} from 'react-router-dom';
 
 const Category = ({id,title,image,items}) => {
-    console.log("category",items);
+
     const navigate = useNavigate();
     const toProductList = ()=> {
         navigate(`/category/${id}`,{state: {id: id, title: title, items: items}})
