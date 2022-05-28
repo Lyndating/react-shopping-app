@@ -41,11 +41,11 @@ function Home() {
     });
     });
     const list = productList.filter((product)=> product.top);
-    console.log("hehre",list);
+
     for (let i =0; i< list.length; i += 3){
         topRating.push(list.slice(i,i+3));
     }
-    console.log(productCollection, topRating);
+
 
     
 
