@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useStateValue } from '../helper/StateProvider';
 
-const CheckoutProduct = ({id,brand, image,title,price}) => {
+const CheckoutProduct = ({id,image,title,price, brand, qty}) => {
     const [{basket},dispatch]= useStateValue();
+    console.log("here is the basket", basket);
     const removeHandler = () => {
         dispatch({
             type: "remove_from_basket",
@@ -17,11 +18,18 @@ const CheckoutProduct = ({id,brand, image,title,price}) => {
             <div className='checkout_product_info'>
                 <h4><strong>{brand}</strong></h4>
                 <h4 className='checkout_product_title'>{title}</h4>
-                <button onClick={removeHandler}>Remove</button>
+                <div className='qty_wrapper'>
+                    <span>Qty: </span>
+                    <button>-</button>
+                    <span>{qty}</span>
+                    <button>+</button>                
+                </div>
+                <button className="checkout_remove_btn"onClick={removeHandler}>Remove</button>
+
             </div>
             <div className='checkout_product_price'>
                 <p className='checkout_product_amount'>
-                    <strong>${price}</strong>
+                    <strong>${price*qty}</strong>
                 </p>
             </div>     
     </div>
