@@ -11,7 +11,7 @@ import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 
-const Checkout = (props)=> {
+const Checkout = ()=> {
     let navigate = useNavigate();
     const routeChange = ()=>{
         navigate('/');
@@ -43,7 +43,9 @@ const Checkout = (props)=> {
 
 
                 <div className='checkout_body'>
+
                     {basket.map(item => (
+                        <>
                         <CheckoutProduct
                             key={item.id}
                             id={item.id}
@@ -51,8 +53,9 @@ const Checkout = (props)=> {
                             title={item.title}
                             image={item.image}
                             price={item.price}
-
+                            qty={item.qty}
                         />
+                        </>
                     ))} 
                 </div>
                 <div className='checkout_footer'>
