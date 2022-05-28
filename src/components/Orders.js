@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {db} from '../firebase-config';
 import { useStateValue } from '../helper/StateProvider';
 import './Order.css';
+import SingleOrder from './SingleOrder';
 
 const Orders = () => {
     const [{basket, address, user}, dispatch] = useStateValue();
@@ -11,15 +12,15 @@ const Orders = () => {
     //fetch order data from db
     useEffect(()=>{
         if(user){
-        db.collection('users').doc(user?.uid).collection('orders').orderBy('created','desc').onSnapshot(snapshot => {
+            db.collection('users').doc(user?.uid).collection('orders').orderBy('created','desc').onSnapshot(snapshot => {
             console.log(snapshot.docs);
             setOrders(snapshot.docs.map(doc=>({
-                id: doc.uid,
+                id: doc.id,
                 data: doc.data()
             })))
-        })}else {
-            setOrders([]);
-        }
+            })}else {
+                setOrders([]);
+            }
     },[user]);
 
     console.log(orders);
@@ -45,9 +46,11 @@ const Orders = () => {
 
         }
         {orders.length >0 &&
-            <>
-            
-            </>
+            <div className='order_list_container'>
+                {orders?.map(order => (
+                    <SingleOrder key={order.id} id={order.id} item={order.data}/>
+                ))}
+            </div>
         }
       </div>
 
