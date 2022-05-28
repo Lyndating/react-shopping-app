@@ -18,10 +18,11 @@ function Product({id,brand, title, image, price, rating}) {
                 image: image,
                 price: price,
                 rating: rating,
+                qty: 1,
             },
         });
     }
-
+    console.log(basket);
     //redict to ProductShow Page
     const redirectToProductShow = () => {
         navigate(`/products/${id}`, {state:{brand: brand, title:title, image:image,price:price,rating:rating}});
