@@ -59,7 +59,7 @@ const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
             </div>
             <div className='checkout_product_price'>
                 <p className='checkout_product_amount'>
-                    <strong>${price*qty}</strong>
+                    <strong>${(price*qty).toFixed(2)}</strong>
                 </p>
             </div>     
     </div>
