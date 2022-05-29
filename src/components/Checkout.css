@@ -91,7 +91,12 @@
 }
 .checkout_product_info {
     width: 40%;
-
+}
+.checkout_product_info>.qty_wrapper {
+    margin-bottom: 1vh;
+}
+.checkout_product_info >.qty_wrapper >button {
+    border:none;
 }
 .checkout_product_info .checkout_product_title {
     font-weight: 400;
