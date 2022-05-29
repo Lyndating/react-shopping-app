@@ -6,7 +6,7 @@ const Category = ({id,title,image,items}) => {
 
     const navigate = useNavigate();
     const toProductList = ()=> {
-        navigate(`/category/${id}`,{state: {id: id, title: title, items: items}})
+        navigate(`/category/${title}`,{state: {id: id, title: title, image:image, items: items}})
     }
   return (
     <div className='category_container'>
