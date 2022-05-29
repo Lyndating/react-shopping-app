@@ -39,6 +39,10 @@
     flex-direction: column;
 }
 
+.product_info >.product_title > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
 .product_info >.product_title>a > h5{
     font-weight: 400;
     height: 60%;
