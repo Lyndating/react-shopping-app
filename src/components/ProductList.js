@@ -7,7 +7,7 @@ import { useStateValue } from '../helper/StateProvider';
 const ProductList = () => {
     const location = useLocation();
     const [{products}, dispatch] = useStateValue();
-    console.log(location.state.items);
+    console.log(location.state);
 
 
 
@@ -28,6 +28,8 @@ const ProductList = () => {
                     image={list.image}
                     rating={list.rating}
                     price={list.price}
+                    category={list.category}
+                    data={location.state}
                     />
 
             ))}
