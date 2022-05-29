@@ -18,7 +18,7 @@ const SingleOrder = ({id, item}) => {
             </div>
             <div className='item_list'>
                 {item.basket.map(product => (
-                    <div className='item_list_checkout_product'>
+                    <div key={product.id}className='item_list_checkout_product'>
                         <div className='checkout_product_image'>
                             <img src={product.image}/>
                         </div>
