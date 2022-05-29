@@ -44,7 +44,7 @@ function Product({id,brand, title, image, price, rating}) {
             <p>{title}</p> 
             <p className='product_price'>
                 <small>$</small>
-                <strong>{price}</strong>
+                <strong>{price.toFixed(2)}</strong>
             </p> 
             <div className='product_rating'>
                 {Array(rating).fill().map((n, i)=>(<p><StarIcon/></p>))}
