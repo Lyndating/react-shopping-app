@@ -38,6 +38,9 @@
     display:flex;
     flex-direction: column;
 }
+.product_info > .product_title {
+    height: 80%;
+}
 
 .product_info >.product_title > a:hover {
     cursor: pointer;
@@ -50,6 +53,7 @@
 }
 .product_info_footer {
     height: 20%;
+    justify-content: flex-end;
 }
 .product_info_footer > .product_price {
     height: 50%;
@@ -81,9 +85,11 @@
     margin-top: 1%;
 }
 
-/* .product_rating {
+.product_rating {
     display: flex;
+    height: 10%;
+    
 }
 .product_rating > p{
     color:rgb(248, 209, 136);
-} */
+} 
