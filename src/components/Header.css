@@ -6,13 +6,17 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    width: 100%;
+}
+.header > a {
+    width: 50%;
 }
 
 .header_logo {
     height: 60px;
     margin: 0 30px;
 }
-.header_search{
+/* .header_search{
     display: flex;
     flex: 1; 
     align-items: center;
@@ -35,11 +39,19 @@
     border-radius: 20px;
     cursor: pointer;
     margin-left: -40px;
-}
+} */
 .header_nav {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     margin-left: 5vw;
+    width: 40%;
+}
+.header_nav >a{
+    width: 40%;
+} 
+.header_nav>.header_optionShoppingBag{
+    width: 10%;
 }
 .header_option {
     display: flex;
