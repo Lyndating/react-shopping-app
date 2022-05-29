@@ -9,7 +9,7 @@ const Category = ({id,title,image,items}) => {
         navigate(`/category/${title}`,{state: {id: id, title: title, image:image, items: items}})
     }
   return (
-    <div className='category_container'>
+    <div key={id} className='category_container'>
         <a onClick={()=> toProductList()}>
             <div className='category_image'>
                 <img src={image} alt='category_image'/>
