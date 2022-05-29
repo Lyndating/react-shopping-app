@@ -4,7 +4,7 @@ import StarIcon from '@mui/icons-material/Star';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useStateValue } from '../helper/StateProvider';
 import {Link, useNavigate} from 'react-router-dom';
-// import { addNewItem, getAllItems } from '../helper/storage';
+import { addNewItem, getAllItems } from '../helper/storage';
 import {db} from '../firebase-config';
 
 function Product({id,brand, title, image, price, rating, category,data}) {
@@ -24,9 +24,9 @@ function Product({id,brand, title, image, price, rating, category,data}) {
             },
         });
         //add item to localBasket
-        // addNewItem({id: id, brand: brand, title: title, image: image, price: price, rating: rating, qty: 1});
+        addNewItem({id: id, brand: brand, title: title, image: image, price: price, rating: rating, qty: 1});
     }
-    // console.log("local storage", getAllItems());
+    console.log("local storage", getAllItems());
     //redict to ProductShow Page
     const redirectToProductShow = () => {
         navigate(`/products/${id}`, {state:{brand: brand, title:title, image:image,price:price,rating:rating, category:category, data: data}});
@@ -46,9 +46,9 @@ function Product({id,brand, title, image, price, rating, category,data}) {
                     <h5>{title}</h5> 
                 </a>
             </div>
-            {/* <div className='product_rating'>
+            <div className='product_rating'>
                 {Array(rating).fill().map((n, i)=>(<p><StarIcon/></p>))}
-            </div> */}
+            </div> 
         </div>
         <div className='product_info_footer'>
             <p className='product_price'>
