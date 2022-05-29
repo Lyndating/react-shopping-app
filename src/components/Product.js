@@ -7,9 +7,8 @@ import {Link, useNavigate} from 'react-router-dom';
 // import { addNewItem, getAllItems } from '../helper/storage';
 import {db} from '../firebase-config';
 
-function Product({id,brand, title, image, price, rating, category, data}) {
+function Product({id,brand, title, image, price, rating, category,data}) {
     const [{basket}, dispatch] = useStateValue();
-    console.log(data);
     const navigate = useNavigate();
     const addToCart = () => {
         dispatch({
@@ -35,7 +34,7 @@ function Product({id,brand, title, image, price, rating, category, data}) {
     
 
   return (
-    <div className='product'>
+    <div key={id} className='product'>
         <a className="product_img" onClick={redirectToProductShow} >
         <img 
             src={image} alt=''/>
