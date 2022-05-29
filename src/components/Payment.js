@@ -249,9 +249,6 @@ const Payment = () => {
                         <form onSubmit={paymentSubmit}>
                             <div className='card_details'>  
                                 <CardElement onChange={handleCardChange}/>
-                                {/* <CardNumberElement onChange={handleCardChange}/>
-                                <CardCvcElement onChange={handleCardChange}/>
-                                <CardExpiryElement onChange={handleCardChange}/> */}
                             </div>
                             <div className='price_container'>
                                 <CurrencyFormat
