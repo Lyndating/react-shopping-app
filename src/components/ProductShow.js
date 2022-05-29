@@ -1,16 +1,21 @@
 import React from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate} from 'react-router-dom';
 import './ProductShow.css';
 
 const ProductShow = () => {
     const location = useLocation();
-    console.log(location.state);
+    const navigate = useNavigate();
     let params = useParams();
+    const categoryInfo=location.state.data;
+    const toCategoryPage =()=>{
+      navigate(`/category/${categoryInfo.title}`,{state:{id:categoryInfo.id, title:categoryInfo.title,image:categoryInfo.image,items:categoryInfo.items}})
+    };
+
   return (
     <div className='product_show_container'>
       <div className='single_product_category_link'>
         <p>
-          <a>Home</a>/<a>{`${location.state.category}`}</a>/<span>{`${location.state.title.toLowerCase()}`}</span>
+          <a onClick={()=>{navigate("/")}}>Home</a>/<a onClick={()=>{toCategoryPage()}}>{`${location.state.category}`}</a>/<span>{`${location.state.title.toLowerCase()}`}</span>
         </p>
       </div>
       <div className="sigle_product_container"key={params.id}>
