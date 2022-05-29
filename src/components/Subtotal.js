@@ -16,7 +16,7 @@ function Subtotal() {
                 </>
             )}
             decimalScale={2}
-            value={subtotalAmount(basket)}
+            value={subtotalAmount(basket).toFixed(2)}
             displayType='text'
             thousandSeparator={true}
             prefix={"$"}/>
