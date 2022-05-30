@@ -21,6 +21,9 @@ const ProductShow = () => {
 
     // add to bag button handler
     const addItemHandler=()=>{
+
+        console.log('quantity dispatch inside additemHandler:', quantity);
+        console.log('basket dispatch inside additemHandler:', basket);
         dispatch({
             type: "add_to_basket",
             item:{
@@ -34,7 +37,7 @@ const ProductShow = () => {
             }
         })
     }
-    
+    console.log("quantity in product page", quantity);
     // increase quantity handler
     const quantityIncrement = ()=> {
       setQuantity(quantity+1);
@@ -53,7 +56,7 @@ const ProductShow = () => {
       product.id === params.id);
       qty = product.qty;
     }
-    console.log(qty);
+    
 
   return (
     <div className='product_show_container'>
@@ -89,10 +92,10 @@ const ProductShow = () => {
             </div>
             <div className='single_product_btn'>
                 <div className='qty_wrapper'>
-                    <span>Quantity: </span>
-                    <button onClick={quantityDecrement}>-</button>
-                    <span> {quantity} </span> 
-                    <button onClick={quantityIncrement}>+</button>                
+                    <span>Quantity:  </span>
+                    <button onClick={quantityDecrement}>-</button> 
+                    <span> {quantity || 1} </span> 
+                    <button onClick={quantityIncrement}>+</button>
                 </div>
                 <button onClick={addItemHandler}>ADD TO BAG</button>
             </div>
