@@ -3,12 +3,15 @@ import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import { auth } from "../firebase-config";
 import "./Login.css";
+import { userSchema } from '../Validations/UserValidation';
+import { useStateValue } from '../helper/StateProvider';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [checked, setChecked] = useState(true);
     const [existingUser, setExistingUser] = useState(true);
+    const [{user,basket}] = useStateValue();
     let navigate = useNavigate();
 
     const signInHandler = (e) => {
@@ -16,7 +19,11 @@ const Login = () => {
         auth.signInWithEmailAndPassword(email,password).then((authResponse)=>{
             console.log(authResponse);
             if(authResponse){
-                navigate('/');
+                if (basket){
+                    navigate('/checkout');
+                }else{
+                    navigate('/');
+                }
             }
         }).catch(error=> alert(error.message));
     }
@@ -26,7 +33,11 @@ const Login = () => {
         auth.createUserWithEmailAndPassword(email,password).then((authResponse) => {
             console.log(authResponse);
             if (authResponse) {
-                navigate('/');
+                if (basket){
+                    navigate('/checkout');
+                }else{
+                    navigate('/');
+                }
                 setExistingUser(true);
             }
         }).catch(error => alert(error.message))
@@ -91,7 +102,7 @@ const Login = () => {
                 />
                 <h3>
                     Password
-                </h3>
+                </h3> 
                 <input 
                     type="password" placeholder='*******' required
                     onChange={(e)=>{setPassword(e.target.value)}}
