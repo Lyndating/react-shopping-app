@@ -13,8 +13,10 @@ const Footer = () => {
         <div className='footer_info'>
         </div>
         <div className='footer_signup'>
+          <div className='footer_title'>
             <h5>SIGN UP NOW</h5>
-            <p> for the latest new and trends</p>
+            <p>for the latest new and trends</p>
+          </div>
             <button onClick={()=>{navigate("/login")}}> Creates an Account </button>
         </div>
     </div>
