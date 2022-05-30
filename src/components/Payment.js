@@ -23,7 +23,7 @@ const Payment = () => {
     });
     console.log(user);
     const navigate = useNavigate();
-
+    
 
     // show delivery address form 
     const [deliveryAddress,setDeliveryAddress] = useState(false);
@@ -97,13 +97,13 @@ const Payment = () => {
                 method: "post",
                 url:`/payments/create?total=${subtotalAmount(basket)*100}`
             })
-            console.log('this is response', res);
             setClientSecret(res.data.clientSecret);
-            
+            console.log(res.data.clientSecret);
         }
         
         getClientSecret();
     },[basket]);
+
 
     console.log("this is client secret",clientSecret);
     // submit the payment form
@@ -172,7 +172,7 @@ const Payment = () => {
                                     name="first_name"
                                     type='text' 
                                     value={states.first_name}
-                                    onChange={handleChange} placeholder='your first name...' 
+                                    onChange={handleChange} placeholder='first name...' 
                                     required
                                 />
                             </label>
@@ -182,7 +182,7 @@ const Payment = () => {
                                     name="last_name"
                                     type="text" 
                                     value={states.last_name}
-                                    onChange={handleChange} placeholder='your last name...' 
+                                    onChange={handleChange} placeholder='last name...' 
                                     required/>
                             </label>
                             <label>
@@ -191,7 +191,7 @@ const Payment = () => {
                                     name="address"
                                     type="text" 
                                     value={states.address}
-                                    onChange={handleChange} placeholder="your delivery address..." required
+                                    onChange={handleChange} placeholder="delivery address..." required
                                 />
                             </label>
                             <label>
@@ -200,7 +200,7 @@ const Payment = () => {
                                     name="contact"
                                     type="text" 
                                     value={states.contact}
-                                    onChange={handleChange} placeholder="your contact number..." required
+                                    onChange={handleChange} placeholder="contact number..." required
                                 />
                             </label>
 
@@ -225,6 +225,7 @@ const Payment = () => {
                             title={item.title}
                             price={item.price}
                             image={item.image}
+                            qty={item.qty}
                         />
                     ))}
                 </div>
