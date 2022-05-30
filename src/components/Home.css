@@ -22,6 +22,7 @@
     align-items: baseline;
     flex-wrap: wrap;
     margin-bottom: 5vh;
+    margin-left: 0;
 }
 
 .product_list >.topRating_list {
@@ -60,5 +61,8 @@
     .product_list>.topRating_list>.product>.home_topRating_product_footer>.product_price {
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+    .product_list {
+        margin-left: 10px;
     }
 } 
