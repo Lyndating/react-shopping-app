@@ -2,11 +2,11 @@ import React from 'react';
 import './Category.css';
 import {useNavigate} from 'react-router-dom';
 
-const Category = ({id,title,image,items}) => {
-
+const Category = ({id,title,image,data}) => {
+    console.log(id,title,image,data);
     const navigate = useNavigate();
     const toProductList = ()=> {
-        navigate(`/category/${title}`,{state: {id: id, title: title, image:image, items: items}})
+        navigate(`/category/${title}`,{state: {data: data}})
     }
   return (
     <div key={id} className='category_container'>
