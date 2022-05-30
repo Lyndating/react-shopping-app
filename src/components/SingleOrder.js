@@ -52,7 +52,7 @@ const SingleOrder = ({id, item}) => {
                     </>
                     )}
                     decimalScale={2}
-                    value={subtotalAmount(item.basket)}
+                    value={subtotalAmount(item.basket).toFixed(2)}
                     displayType='text'
                     thousandSeparator={true}
                     prefix={"$"}/>
