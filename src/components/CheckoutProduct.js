@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { useStateValue } from '../helper/StateProvider';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
     const [{basket},dispatch]= useStateValue();
-    console.log("here is the basket", basket);
+    const navigate = useNavigate();
     const removeHandler = () => {
         dispatch({
             type: "remove_from_basket",
@@ -42,7 +43,7 @@ const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
     }
   return (
     <div className='checkout_product'>
-            <div className='checkout_product_image'>
+            <div className='checkout_product_image order_list_image'>
                 <img className="checkout_product_img" src={image} alt=""/>
             </div>
             <div className='checkout_product_info'>
@@ -50,9 +51,9 @@ const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
                 <h4 className='checkout_product_title'>{title}</h4>
                 <div className='qty_wrapper'>
                     <span>Qty: </span>
-                    <button onClick={removeItemHandler}>-</button>
+                    <button className="payment_item_qty" onClick={removeItemHandler}>-</button>
                     <span> {qty} </span>
-                    <button onClick={addItemHandler}>+</button>                
+                    <button className="payment_item_qty" onClick={addItemHandler}>+</button>                
                 </div>
                 <button className="checkout_remove_btn"onClick={removeHandler}>Remove</button>
 
