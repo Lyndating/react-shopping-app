@@ -1,4 +1,4 @@
-import { ActionTypes } from "@mui/base";
+
 
 export const initialState = {
     basket: [],
@@ -22,11 +22,15 @@ const reducer = (state, action) => {
             if (productIndex != -1) {
                 let newItem = action.item;
                 let existQty = existBasket[productIndex].qty;
-                newItem.qty = 1 + existQty;
+                console.log("existQty",existQty);
+                console.log("action.item.qty", action.item.qty);
+                newItem.qty = action.item.qty + existQty;
+                console.log('new quantity', newItem.qty);
                 existBasket.splice(productIndex,1);
                 existBasket.push(newItem);
+                // TODO: figure out what in this is causing a second run of the function 
                 return {
-                 ...state, basket:existBasket,
+                 ...state, basket: existBasket,
                 }
             }else {
                 return {
