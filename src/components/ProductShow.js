@@ -10,10 +10,11 @@ const ProductShow = () => {
     const location = useLocation();
     const navigate = useNavigate();
     let params = useParams();
-    const categoryInfo=location.state.data;
+    console.log(location.state);
+    const categoryInfo=location.state;
     const {brand, category, image, price, rating, title} = location.state;
     const toCategoryPage =()=>{
-      navigate(`/category/${categoryInfo.title}`,{state:{id:categoryInfo.id, title:categoryInfo.title,image:categoryInfo.image,items:categoryInfo.items}})
+      navigate(`/category/${location.state.title}`,{state:{id:categoryInfo.id, title:categoryInfo.category,image:categoryInfo.image,data:categoryInfo.data}})
     };
 
     const [quantity, setQuantity] = useState(1);
@@ -21,9 +22,6 @@ const ProductShow = () => {
 
     // add to bag button handler
     const addItemHandler=()=>{
-
-        console.log('quantity dispatch inside additemHandler:', quantity);
-        console.log('basket dispatch inside additemHandler:', basket);
         dispatch({
             type: "add_to_basket",
             item:{
@@ -37,7 +35,7 @@ const ProductShow = () => {
             }
         })
     }
-    console.log("quantity in product page", quantity);
+    
     // increase quantity handler
     const quantityIncrement = ()=> {
       setQuantity(quantity+1);
