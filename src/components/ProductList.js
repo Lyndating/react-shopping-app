@@ -7,7 +7,7 @@ import { useStateValue } from '../helper/StateProvider';
 const ProductList = () => {
     const location = useLocation();
     const [{products}, dispatch] = useStateValue();
-
+    console.log(location.state);
   return (
     <div>
         <div className='product_list_nav'>
@@ -18,7 +18,7 @@ const ProductList = () => {
         </div>
             <div className='category_products_rows'>
                 <div className='category_product_list'>
-                    {location.state.items.map((list)=>(
+                    {location.state.data.map((list)=>(
                     <Product
                     key={list.id}
                     id={list.id}
@@ -28,7 +28,7 @@ const ProductList = () => {
                     rating={list.rating}
                     price={list.price}
                     category={list.category}
-                    data={location.state}
+                    data={location.state.data}
                     />
 
             ))}
