@@ -19,6 +19,14 @@ const Checkout = ()=> {
     }
 
     const [{basket, user},dispatch]= useStateValue();
+
+    const directToCheckOutHandler =()=>{
+        if (user){
+            navigate('/payment');
+        }else {
+            navigate('/login');
+        }
+    }
  
   return (
     <>
@@ -74,7 +82,7 @@ const Checkout = ()=> {
                         <p>Estimated Delivery $0</p>
 
                     </div>
-                    <button onClick={()=>navigate('/payment')}>CONTINUE TO CHECKOUT</button>
+                    <button onClick={directToCheckOutHandler}>CONTINUE TO CHECKOUT</button>
                 </div>
 
             </div>
