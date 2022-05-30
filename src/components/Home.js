@@ -67,6 +67,7 @@ function Home() {
                     rating={list[0].rating}
                     price={list[0].price}
                     category={list[0].category}
+                    data={productCollection[list[0].category]}
                     />
                     <Product
                     id={list[1].id}
@@ -76,6 +77,7 @@ function Home() {
                     rating={list[1].rating}
                     price={list[1].price}
                     category={list[1].category}
+                    data={productCollection[list[1].category]}
                 />
                 <Product
                     id={list[2].id}
@@ -85,6 +87,7 @@ function Home() {
                     rating={list[2].rating}
                     price={list[2].price}
                     category={list[2].category}
+                    data={productCollection[list[1].category]}
                 />
                 </div>
                 ))}
