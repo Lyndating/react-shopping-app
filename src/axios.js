@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: '...' // THE API (cloud function) URL
+    baseURL: "https://us-central1-shopping-react-app-deecf.cloudfunctions.net/api"
+    // 'http://localhost:5001/shopping-react-app-deecf/us-central1/api' 
+    // THE API (cloud function) URL
 });
 
 export default instance;
