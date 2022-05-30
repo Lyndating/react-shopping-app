@@ -44,7 +44,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path="/" element={[<Header/>,<Home/>,<Footer/>]}/>
-          <Route path="/category/:id" element={[<Header/>,<ProductList/>,<Footer/>]}/>
+          <Route path="/category/:title" element={[<Header/>,<ProductList/>,<Footer/>]}/>
           <Route path="/products/:id" element={[<Header/>,<ProductShow/>,<Footer/>]}/>
           <Route path="/checkout" element={[<Header/>,<Checkout/>,<Footer/>]}/>
           <Route path="/payment" element={[
