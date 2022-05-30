@@ -6,6 +6,9 @@
     width: 100%;
     cursor: pointer;
 }
+.back_to_checkout:hover {
+    color:#8b8e92;
+}
 
 .back_to_checkout svg {
     margin-right: 2vw;
@@ -69,8 +72,11 @@
 }
 
 /* payment checkout Product list */
-.payment_items .checkout_product .checkout_product_info >button {
+.payment_items .checkout_product .checkout_product_info >.qty_wrapper>.payment_item_qty {
     display: none;
+}
+.payment_items .checkout_product .checkout_product_info>.checkout_remove_btn{
+    display:none;
 }
 
 /* payment footer */

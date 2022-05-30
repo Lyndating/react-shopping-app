@@ -97,7 +97,9 @@
 }
 .checkout_product_info >.qty_wrapper >button {
     border:none;
+    cursor: pointer;
 }
+
 .checkout_product_info .checkout_product_title {
     font-weight: 400;
     margin: 10px 0 30px 0;
@@ -165,4 +167,9 @@
     font-size: 15px;
     padding: 0 20px;
     cursor: pointer;
+}
+
+.checkout_footer>button:hover {
+    background-color: white;
+    color: #131921;
 }

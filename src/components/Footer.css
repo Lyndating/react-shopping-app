@@ -12,25 +12,45 @@
 }
 .footer .footer_info {
     display: flex;
-    width: 50%;
+    width: 40%;
 }
 
 .footer .footer_signup {
-    width: 50%;
+    width: 60%;
     display: flex;
     flex-direction: row;
     align-items:center;
     justify-content: flex-end;
 }
-.footer .footer_signup>p {
+.footer .footer_signup > .footer_title {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer .footer_signup>.footer_title>p {
     font-size: 12px;
     font-style: italic;
-    margin: 0 10px;
 }
 
 .footer .footer_signup > button {
+    width: 40%;
     background-color: #131921;
     border: none;
     color: white;
     border-bottom: 1px solid white;
+    cursor: pointer;
+}
+.footer .footer_signup>button:hover {
+    border-bottom: none;
+}
+
+@media (max-width:390px) {
+    .footer .footer_info {
+        width: 10%;
+    }
+    .footer .footer_signup {
+        width: 90%;
+    }
+    
 }

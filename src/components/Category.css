@@ -48,3 +48,11 @@
 .category_container>a> p{
     text-align: center;
 }
+
+@media (max-width:390px) {
+
+    .category_container {
+        max-width: calc(100%/3);
+        flex-basis: calc(100%/3);
+    }
+}

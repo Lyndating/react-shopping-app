@@ -87,10 +87,9 @@
 .sigle_product_container>.single_product_info>.single_product_btn>button {
     background-color: #131921;
     color: white;
-    height: 40px;
     font-weight: 600;
     font-size: 15px;
-    padding: 0 20px;
+    padding: 5px 20px;
     cursor: pointer;
 }
 .sigle_product_container>.single_product_info>.single_product_btn>button:hover {

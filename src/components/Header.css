@@ -9,7 +9,7 @@
     width: 100%;
 }
 .header > a {
-    width: 50%;
+    width: 40%;
 }
 
 .header_logo {
@@ -45,7 +45,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin-left: 5vw;
-    width: 40%;
+    width: 60%;
 }
 .header_nav >a{
     width: 40%;
@@ -87,4 +87,36 @@
     font-size: 21px;
     position:absolute;
     color:white;
+}
+
+@media (max-width:390px) {
+    .header_nav {
+        justify-content: space-between;
+        margin-left: 1vw;
+    }
+    .header_nav > .user_login {
+        width: 50%;
+    }
+    .header_optionLineOne {
+        font-size: 10px;
+    }
+    
+    .header_optionLineTwo {
+        font-size: 12px;
+        font-weight: 800;
+    }
+    .header_optionShoppingBag {
+        display: flex;
+        color: white;
+        align-items: center;
+        margin: 0 15px;
+        position: relative;
+    }
+    .header_shoppingCount {
+        margin: 14px 0 0 -10px;
+        background-color: #131921;
+        font-size: 21px;
+        position: absolute;
+        color: white;
+    }
 }
