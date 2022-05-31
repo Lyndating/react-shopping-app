@@ -59,13 +59,6 @@ const Payment = () => {
     
     // show payment card form 
     const [cardShow, setCardShow] = useState(false);
-    // open or close delivery section downdown form
-    // let payment_process_ClassStyle;
-    // if(!cardShow){
-    //     payment_process_ClassStyle="payment_nextstep_show";
-    // }else{
-    //     payment_process_ClassStyle="payment_nextstep_hide";
-    // }
     
     // disabled next step if delivery address is empty
     const handleBilling=()=>{
@@ -153,6 +146,7 @@ const Payment = () => {
         </div>
         <div className='payment'>
             <div className='payment_body'>
+                {/* delivery address form  */}
                 {!deliveryAddress &&
                 <div onClick={()=>{setDeliveryAddress(true)}}className='payment_delivery'>
 
@@ -166,6 +160,7 @@ const Payment = () => {
                 {deliveryAddress&&
                     <form onSubmit={addressConfirm}>
                         <div className='delivery_form'>
+                            <div className='delivery_form_input_area'>
                             <label>
                                 First Name: 
                                 <input 
@@ -203,10 +198,12 @@ const Payment = () => {
                                     onChange={handleChange} placeholder="contact number..." required
                                 />
                             </label>
-
+                            </div>
+                            <div className='delivery_form_btn'>
                             <button className='delivery_confirm_btn'>
                             CONFIRM
                         </button>
+                        </div>
                         </div>
                     </form>
                 }
@@ -217,6 +214,7 @@ const Payment = () => {
                     <p>{`${address.address}`}</p>
                 </div> 
                 }
+                {/* checkout product list */}
                 <div className='payment_items'>
                     {basket.map(item=>(
                         <CheckoutProduct
@@ -230,6 +228,7 @@ const Payment = () => {
                     ))}
                 </div>
             </div>
+            {/* payment section */}
             <div className='payment_section'> 
                 <div className='payment_total_amount'>
                     <h2>TOTAL</h2>
