@@ -1,13 +1,11 @@
 import React from 'react';
 import "./Product.css";
 import StarIcon from '@mui/icons-material/Star';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useStateValue } from '../helper/StateProvider';
-import {Link, useNavigate} from 'react-router-dom';
-import {db} from '../firebase-config';
+import {useNavigate} from 'react-router-dom';
 
 function Product({id,brand, title, image, price, rating, category,data}) {
-    const [{basket, count}, dispatch] = useStateValue();
+    const [dispatch] = useStateValue();
     const navigate = useNavigate();
     const addToCart = () => {
         dispatch({
@@ -32,16 +30,16 @@ function Product({id,brand, title, image, price, rating, category,data}) {
 
   return (
     <div key={id} className='product category_list_product'>
-        <a className="product_img" onClick={redirectToProductShow} >
+        <div className="product_img" onClick={redirectToProductShow} >
         <img 
             src={image} alt=''/>
-        </a>
+        </div>
         <div className='product_info'>
             <div className='product_title'>
                 <h4><strong>{brand}</strong></h4>
-                <a onClick={redirectToProductShow}>
+                <div onClick={redirectToProductShow}>
                     <h5>{title}</h5> 
-                </a>
+                </div>
             </div>
             <div className='product_rating'>
                 {Array(rating).fill().map((n, i)=>(<p><StarIcon/></p>))}
