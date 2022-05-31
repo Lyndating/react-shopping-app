@@ -1,9 +1,7 @@
 import React from 'react';
-import CheckoutProduct from './CheckoutProduct';
 import "./SingleOrder.css";
 import CurrencyFormat from 'react-currency-format';
 import { subtotalAmount } from '../helper/reducer';
-import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
 const SingleOrder = ({id, item}) => {
@@ -18,9 +16,9 @@ const SingleOrder = ({id, item}) => {
             </div>
             <div className='item_list'>
                 {item.basket.map(product => (
-                    <div key={product.id}className='item_list_checkout_product'>
+                    <div key={product.id} className='item_list_checkout_product'>
                         <div className='checkout_product_image'>
-                            <img src={product.image}/>
+                            <img src={product.image} alt={product.image}/>
                         </div>
                         <div className='checkout_product_info'>
                             <h5><strong></strong>{product.brand}</h5>
