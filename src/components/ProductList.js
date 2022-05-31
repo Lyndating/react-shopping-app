@@ -7,7 +7,6 @@ import { useStateValue } from '../helper/StateProvider';
 const ProductList = () => {
     const location = useLocation();
     const [{products}, dispatch] = useStateValue();
-    console.log(location.state);
   return (
     <div>
         <div className='product_list_nav'>
