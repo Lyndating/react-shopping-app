@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { useStateValue } from '../helper/StateProvider';
-import { useNavigate } from 'react-router-dom';
 
 const CheckoutProduct = ({id,image,title,price, brand, rating,qty}) => {
-    const [{basket},dispatch]= useStateValue();
-    const navigate = useNavigate();
+    const [dispatch]= useStateValue();
     const removeHandler = () => {
         dispatch({
             type: "remove_from_basket",
