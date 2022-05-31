@@ -1,19 +1,19 @@
 
-
+// initial basket
 export const initialState = {
     basket: [],
     user: null,
     address: null,
     products: null,
 };
-
+// sum the total amount of basket items
 export const subtotalAmount = (basket) =>{
     if (basket) {
         return basket.reduce((amount,item)=> 
             amount +item.price*item.qty, 0);        
     }
 }
-
+// dispatch function for state changes
 const reducer = (state, action) => {
     switch(action.type) {
         case "add_to_basket":
@@ -22,10 +22,7 @@ const reducer = (state, action) => {
             if (productIndex != -1) {
                 let newItem = action.item;
                 let existQty = existBasket[productIndex].qty;
-                console.log("existQty",existQty);
-                console.log("action.item.qty", action.item.qty);
                 newItem.qty = action.item.qty + existQty;
-                console.log('new quantity', newItem.qty);
                 existBasket.splice(productIndex,1);
                 existBasket.push(newItem);
                 // TODO: figure out what in this is causing a second run of the function 
@@ -39,10 +36,7 @@ const reducer = (state, action) => {
             }
             };
         case "reduce_from_basket":
-            console.log(action.item);
-            console.log(state.basket);
             const reduceItemIndex = state.basket.findIndex(item=> item.id === action.item.id);
-            console.log('reduce function', reduceItemIndex);
             let basketBeforeAction = [...state.basket];
             if (reduceItemIndex != -1){
                 let qtyBeforeAction = basketBeforeAction[reduceItemIndex].qty;
@@ -82,10 +76,7 @@ const reducer = (state, action) => {
         case "add_address":
             let a = {...state, address: action.item}
             return a
-        case "add_products":
-            return {
-                ...state, products: action.products
-            }
+
         default:
             return state;
     }
