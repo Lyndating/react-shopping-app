@@ -65,7 +65,7 @@ const ProductShow = () => {
           /<span> {`${location.state.title.toLowerCase()}`} </span>
         </p>
       </div>
-
+      <div>
       <div className="sigle_product_container" key={params.id}>
         <div className="single_product_img">
           <img src={location.state.image}/>
@@ -98,7 +98,7 @@ const ProductShow = () => {
                 <button onClick={addItemHandler}>ADD TO BAG</button>
             </div>
         </div>
-        
+      </div>
     </div>
     </div>
 
