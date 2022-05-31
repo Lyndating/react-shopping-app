@@ -6,7 +6,7 @@ import './Order.css';
 import SingleOrder from './SingleOrder';
 
 const Orders = () => {
-    const [{basket, address, user}, dispatch] = useStateValue();
+    const [{user}] = useStateValue();
     const [orders, setOrders] = useState([]);
     const navigate = useNavigate();
     //fetch order data from db
