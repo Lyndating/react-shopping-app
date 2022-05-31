@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-react": "^7.17.12",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.8.0",
@@ -14,18 +15,21 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "firebase": "^9.8.1",
+    "identity-obj-proxy": "^3.0.0",
     "moment": "^2.29.3",
     "react": "^18.1.0",
     "react-currency-format": "^1.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.31.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
   }
 }
