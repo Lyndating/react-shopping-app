@@ -1,14 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Checkout.css';
 import Subtotal from './Subtotal';
 import {useNavigate} from 'react-router-dom';
-import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../helper/StateProvider';
-import {subtotalAmount} from '../helper/reducer';
 import CheckoutProduct from './CheckoutProduct';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 
 const Checkout = ()=> {
@@ -17,7 +14,7 @@ const Checkout = ()=> {
         navigate('/');
     }
 
-    const [{basket, user},dispatch]= useStateValue();
+    const [{basket, user}]= useStateValue();
 
     const directToCheckOutHandler =()=>{
         if (user){
