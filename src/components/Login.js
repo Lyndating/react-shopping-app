@@ -1,9 +1,7 @@
-import { Checkbox } from '@mui/material';
 import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import { auth } from "../firebase-config";
 import "./Login.css";
-import { userSchema } from '../Validations/UserValidation';
 import { useStateValue } from '../helper/StateProvider';
 
 const Login = () => {
@@ -11,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [checked, setChecked] = useState(true);
     const [existingUser, setExistingUser] = useState(true);
-    const [{user,basket}] = useStateValue();
+    const [{basket}] = useStateValue();
     let navigate = useNavigate();
 
     const signInHandler = (e) => {
