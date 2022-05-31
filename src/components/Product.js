@@ -4,7 +4,6 @@ import StarIcon from '@mui/icons-material/Star';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useStateValue } from '../helper/StateProvider';
 import {Link, useNavigate} from 'react-router-dom';
-import { addNewItem, getAllItems, removeAllItems } from '../helper/storage';
 import {db} from '../firebase-config';
 
 function Product({id,brand, title, image, price, rating, category,data}) {
@@ -23,8 +22,6 @@ function Product({id,brand, title, image, price, rating, category,data}) {
                 qty: 1,
             },
         });
-        //add item to localBasket
-        addNewItem({id: id, brand: brand, title: title, image: image, price: price, rating: rating, qty: 1});
     }
     
     //redict to ProductShow Page
