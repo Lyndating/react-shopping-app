@@ -3,8 +3,6 @@ import './Footer.css';
 import { useNavigate } from 'react-router-dom';
 const Footer = () => {
     const navigate=useNavigate();
-
-    let footer_header = ["FREE EXPRESS DELIVERY ON ANY PURCHASE" , "MID SEASON SALE", "FLEXIBLE RETURN", ]
   return (
     <div className='footer'>
         <div>
