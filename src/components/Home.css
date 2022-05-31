@@ -32,6 +32,7 @@
     display: block;
     margin: 5vh 0;
     background-color: transparent; */
+    width: 90vw;
     display: flex;
     flex-direction: row;
     margin-left: 5px;
