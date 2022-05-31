@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import { auth } from "../firebase-config";
 import "./Login.css";
 import { useStateValue } from '../helper/StateProvider';
+import logo from '../images/shopping_logo.gif'
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -47,7 +48,7 @@ const Login = () => {
     <div className='login'>
         <div className='login_logo'>
             <Link to="/">
-                <img className="login_img"src='shopping_logo.gif' alt='logo'/>
+                <img className="login_img" src={logo} alt='logo'/>
             </Link>
         </div>
         {existingUser &&
