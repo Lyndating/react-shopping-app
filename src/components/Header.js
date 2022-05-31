@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import SearchIcon from '@mui/icons-material/Search';
+// import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import {Link} from 'react-router-dom';
 import {useStateValue} from '../helper/StateProvider';
@@ -8,7 +8,7 @@ import {auth} from '../firebase-config';
 import logo from '../images/shopping_logo.gif'
 
 function Header() {
-  const [{basket, user},dispatch]= useStateValue();
+  const [{basket, user}]= useStateValue();
   let signInState;
   user? signInState="Sign Out" : signInState="Sign In";
 
@@ -58,7 +58,7 @@ function Header() {
         </Link>
         <div className='header_optionShoppingBag'>
           <Link to="/checkout">
-          {!basket || basket.length === 0 &&
+          {basket.length === 0 &&
               <ShoppingBagOutlinedIcon/>
           }
           {basket.length > 0 &&
