@@ -19,7 +19,7 @@ import {loadStripe} from '@stripe/stripe-js';
 const promise = loadStripe('pk_test_51L3HT9FAatdIn9qmzTsy63x6vfYyietEgvALSrfk9qdg6tAJZZWbnUEtzrJHJLJVVv0B6LvrA7euGNEVA5D93GAe00cE7sZdIA');
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
   useEffect(()=>{
       auth.onAuthStateChanged(authedUser => {
         // if login successfully
@@ -34,9 +34,9 @@ function App() {
             type: "set_user",
             user: null
           })
-        }
+        };
       });
-  },[]);
+  },[dispatch]);
 
 
   return (
