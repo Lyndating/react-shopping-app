@@ -118,6 +118,7 @@
     .sigle_product_container>.single_product_img {
         width: 80%;
         height: 50%;
+        overflow: hidden;
     }
     .sigle_product_container>.single_product_img>img {
         width:100%;
