@@ -83,11 +83,11 @@
     box-sizing: border-box;
     width: 20%;
     vertical-align: middle;
-    cursor: pointer;
+    overflow: hidden;
 }
 
 .checkout_product_image >.checkout_product_img {
-    width: 100px;
+    width: 100%;
 }
 .checkout_product_info {
     width: 40%;
@@ -172,4 +172,13 @@
 .checkout_footer>button:hover {
     background-color: white;
     color: #131921;
+}
+
+@media (max-width:390px) {
+    .checkout_product > .checkout_product_price {
+        width: 20%;
+    }
+    .checkout_product_image {
+        width: 40%;
+    }
 }
