@@ -7,8 +7,7 @@ import './Payment.css';
 import CheckoutProduct from './CheckoutProduct';
 import CurrencyFormat from 'react-currency-format';
 import Subtotal from './Subtotal';
-import {CardElement, CardNumberElement, CardExpiryElement,CardCvcElement, useStripe,useElements}from '@stripe/react-stripe-js';
-import { KeyboardReturnOutlined } from '@mui/icons-material';
+import {CardElement,useStripe,useElements}from '@stripe/react-stripe-js';
 import { subtotalAmount } from '../helper/reducer';
 import axios from '../axios';
 import {db} from '../firebase-config';
@@ -111,7 +110,7 @@ const Payment = () => {
         e.preventDefault();
         setProcessing(true);
         //confirm card payment, passing clientSecret
-        const payload = await stripe.confirmCardPayment(clientSecret, {
+        await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement),
             }
