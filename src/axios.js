@@ -7,4 +7,3 @@ const instance = axios.create({
 });
 
 export default instance;
-"https://s7ap1.scene7.com/is/image/bigw/Beauty_CT_make-up_210701?$cms-max-image-threshold$&fmt=webp-alpha&wid=352&fit=hfit%2C1&qlt=88"
