@@ -49,6 +49,7 @@
 }
 .header_nav >a{
     width: 40%;
+    text-decoration: none;
 } 
 .header_nav>.header_optionShoppingBag{
     width: 10%;
