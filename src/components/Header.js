@@ -31,7 +31,7 @@ function Header() {
       <Link to="/">
         <img 
         className='header_logo'
-        src='../images/shopping_logo.gif' alt='header_logo'
+        src={logo} alt='header_logo'
         />
       </Link>      
 
