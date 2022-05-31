@@ -8,13 +8,13 @@
    margin-top: 1vh;
    margin-bottom: 2vh;
 }
-.single_product_category_link >p >a{
+.single_product_category_link >p >span{
     color: #8b8e92;
 }
 .single_product_category_link>p>span {
     color: #8b8e92;
 }
-.single_product_category_link > p>a:hover{
+.single_product_category_link > p>span:hover{
     color: #131921;
     font-weight: 400;
 }
@@ -26,6 +26,7 @@
     height: 50vh;
     margin: 5vh auto;
     align-items: center;
+    overflow: hidden;
 }
 
 .sigle_product_container > .single_product_img {
