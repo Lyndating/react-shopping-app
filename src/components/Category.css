@@ -18,7 +18,7 @@
 
 }
 
-.category_container >a > .category_image{
+.category_container >div > .category_image{
     /* display:flex;
     width: 100%;
     height:80%;
@@ -30,22 +30,22 @@
     background-color: transparent;
 }
 
-.category_container > a{
+.category_container > div{
     text-decoration: none;
     color: #131921;
 }
-.category_container > a> .category_image > img{
+.category_container > div> .category_image > img{
     width:90%;
     display:block;
     height: auto;
     cursor: pointer;
 }
-.category_container>a >.category_image >img:hover {
+.category_container>div >.category_image >img:hover {
     transform: scale(1.1);
     transition: 0.2s;
 
 }
-.category_container>a> p{
+.category_container>div> p{
     text-align: center;
 }
 

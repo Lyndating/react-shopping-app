@@ -45,11 +45,11 @@
     height: 80%;
 }
 
-.product_info >.product_title > a:hover {
+.product_info >.product_title > div:hover {
     cursor: pointer;
     text-decoration: underline;
 }
-.product_info >.product_title>a > h5{
+.product_info >.product_title>div > h5{
     font-weight: 400;
     height: 60%;
     margin-top: 5px;
