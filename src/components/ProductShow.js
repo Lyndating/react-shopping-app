@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { useParams, useLocation, useNavigate} from 'react-router-dom';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import CurrencyFormat from 'react-currency-format';
-import { subtotalAmount } from '../helper/reducer';
 import { useStateValue } from '../helper/StateProvider';
 import './ProductShow.css';
 
@@ -10,15 +9,14 @@ const ProductShow = () => {
     const location = useLocation();
     const navigate = useNavigate();
     let params = useParams();
-    console.log(location.state);
     const categoryInfo=location.state;
     const {brand, category, image, price, rating, title} = location.state;
     const toCategoryPage =()=>{
-      navigate(`/category/${location.state.title}`,{state:{id:categoryInfo.id, title:categoryInfo.category,image:categoryInfo.image,data:categoryInfo.data}})
+      navigate(`/category/${category}`,{state:{id:categoryInfo.id, title:categoryInfo.category,image:categoryInfo.image,data:categoryInfo.data}})
     };
 
     const [quantity, setQuantity] = useState(1);
-    const [{basket},dispatch] = useStateValue();
+    const [dispatch] = useStateValue();
 
     // add to bag button handler
     const addItemHandler=()=>{
@@ -43,32 +41,25 @@ const ProductShow = () => {
 
     // decrease quantity handler
     const quantityDecrement = ()=>{
-      if(quantity != 1){
+      if(quantity !== 1){
         setQuantity(quantity-1);
       }
       
     }
-    let qty;
-    if (basket.length > 0){
-      const product = basket.map((product)=> 
-      product.id === params.id);
-      qty = product.qty;
-    }
-    
 
   return (
     <div className='product_show_container'>
       <div className='single_product_category_link'>
         <p>
-          <a onClick={()=>{navigate("/")}}> Home </a>
-          /<a onClick={()=>{toCategoryPage()}}> {`${location.state.category}`} </a>
+          <span onClick={()=>{navigate("/")}}> Home </span>
+          /<span  onClick={()=>{toCategoryPage()}}> {`${location.state.category}`} </span>
           /<span> {`${location.state.title.toLowerCase()}`} </span>
         </p>
       </div>
       <div>
       <div className="sigle_product_container" key={params.id}>
         <div className="single_product_img">
-          <img src={location.state.image}/>
+          <img src={location.state.image} alt={location.state.title}/>
         </div>
         <div className='single_product_info'>
             <h3>{location.state.brand}</h3>
