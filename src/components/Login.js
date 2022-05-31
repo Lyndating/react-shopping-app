@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import { auth } from "../firebase-config";
 import "./Login.css";
-import { userSchema } from '../Validations/UserValidation';
+import { userSchema } from '../validations/UserValidation';
 import { useStateValue } from '../helper/StateProvider';
 
 const Login = () => {
@@ -14,6 +14,7 @@ const Login = () => {
     const [{user,basket}] = useStateValue();
     let navigate = useNavigate();
 
+    // sign In 
     const signInHandler = (e) => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email,password).then((authResponse)=>{
@@ -28,6 +29,7 @@ const Login = () => {
         }).catch(error=> alert(error.message));
     }
 
+    // sign Up
     const signUpHandler = (e)=>{
         e.preventDefault();
         auth.createUserWithEmailAndPassword(email,password).then((authResponse) => {

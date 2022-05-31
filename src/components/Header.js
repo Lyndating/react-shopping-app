@@ -5,7 +5,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import {Link} from 'react-router-dom';
 import {useStateValue} from '../helper/StateProvider';
 import {auth} from '../firebase-config';
-import logo from '../images/shopping_logo.gif'
+import logo from '../images/shopping_logo.gif';
 
 function Header() {
   const [{basket, user},dispatch]= useStateValue();
@@ -31,7 +31,7 @@ function Header() {
       <Link to="/">
         <img 
         className='header_logo'
-        src={logo} alt='header_logo'
+        src='../images/shopping_logo.gif' alt='header_logo'
         />
       </Link>      
 
