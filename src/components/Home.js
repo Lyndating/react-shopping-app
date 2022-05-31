@@ -5,16 +5,16 @@ import Product from './Product';
 import Slider from './Slider';
 import {collection, getDocs} from 'firebase/firestore';
 import CategoryList from './CategoryList';
-import { useStateValue } from '../helper/StateProvider';
 
 function Home() {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
 
     // fetch all the product from db once the page load
-    const productCollectionRef = collection(db, "Products");
-    const categoryCollectionRef = collection(db, 'categories');
+
     useEffect(()=>{
+        const productCollectionRef = collection(db, "Products");
+        const categoryCollectionRef = collection(db, 'categories');
         const getCategories = async ()=>{
         const data = await getDocs(categoryCollectionRef);
             setCategories(data.docs.map((doc)=>({...doc.data(), id: doc.id})));
@@ -32,14 +32,17 @@ function Home() {
 
     let productCollection = {};
     let topRating = [];
-    categories.map((category)=>{
+    for(let i=0; i<categories.length; i++){
+        let category = categories[i];
         productCollection[category.title] =[];
-        productList.map((product)=>{
+        for(let n = 0; n < productList.length; n++){
+            let product = productList[n];
             if(product.category === category.title){
                 productCollection[category.title].push(product);
             }
-    });
-    });
+        };
+        ;
+    };
     const list = productList.filter((product)=> product.top);
 
     for (let i =0; i< list.length; i += 3){
