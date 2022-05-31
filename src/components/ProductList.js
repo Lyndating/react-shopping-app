@@ -5,10 +5,11 @@ import { Link, useLocation} from 'react-router-dom';
 
 const ProductList = () => {
     const location = useLocation();
+    console.log(location.state.data);
   return (
     <div>
         <div className='product_list_nav'>
-            <p><Link to="/">Home</Link> / {location.state.title}</p>
+            <p><Link to="/">Home</Link> / {location.state.data[0].category}</p>
         </div>
         <div className='category_title'>
             <h2>{location.state.title}</h2>
