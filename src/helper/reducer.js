@@ -19,7 +19,7 @@ const reducer = (state, action) => {
         case "add_to_basket":
             let existBasket = [...state.basket];
             const productIndex = state.basket.findIndex(item => item.id === action.item.id)
-            if (productIndex != -1) {
+            if (productIndex !== -1) {
                 let newItem = action.item;
                 let existQty = existBasket[productIndex].qty;
                 console.log("existQty",existQty);
@@ -44,7 +44,7 @@ const reducer = (state, action) => {
             const reduceItemIndex = state.basket.findIndex(item=> item.id === action.item.id);
             console.log('reduce function', reduceItemIndex);
             let basketBeforeAction = [...state.basket];
-            if (reduceItemIndex != -1){
+            if (reduceItemIndex !== -1){
                 let qtyBeforeAction = basketBeforeAction[reduceItemIndex].qty;
                 action.item.qty = qtyBeforeAction-1;
                 basketBeforeAction.splice(reduceItemIndex,1);
@@ -56,14 +56,14 @@ const reducer = (state, action) => {
                 }
             }else {
                 return {
-                    ...state, basket: newBasket,
+                    ...state, basket: basketBeforeAction,
                 }
             }
             
         case "remove_from_basket":
             const index = state.basket.findIndex(item => item.id === action.id);
             let newBasket = [...state.basket];
-            if(index != -1){
+            if(index !== -1){
                 newBasket.splice(index,1);
             }
             return {
