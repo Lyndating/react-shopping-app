@@ -16,7 +16,7 @@ const ProductShow = () => {
     };
 
     const [quantity, setQuantity] = useState(1);
-    const [dispatch] = useStateValue();
+    const [{basket},dispatch] = useStateValue();
 
     // add to bag button handler
     const addItemHandler=()=>{

@@ -5,7 +5,7 @@ import { useStateValue } from '../helper/StateProvider';
 import {useNavigate} from 'react-router-dom';
 
 function Product({id,brand, title, image, price, rating, category,data}) {
-    const [dispatch] = useStateValue();
+    const [{basket},dispatch] = useStateValue();
     const navigate = useNavigate();
     const addToCart = () => {
         dispatch({

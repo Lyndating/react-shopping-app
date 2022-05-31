@@ -21,16 +21,15 @@
 }
 .product>.product_img {
     display: flex;
-    height: 50%;
-    
+    height: 300px;
     margin: 5%;
     align-items: flex-start;
 }
 
 
 .product>.product_img>img {
-    width:100%;
-    height: auto;
+    width:auto;
+    height: 100%;
     display:block;
 }
 
@@ -114,4 +113,4 @@
     .product_info>.product_title{
         height: 60%;
     }
-}
+}       
