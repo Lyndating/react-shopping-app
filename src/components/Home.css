@@ -53,6 +53,21 @@
     font-weight: 600;
     margin: 2vh auto;
 }
+@media (max-width:600px) {
+    .product_list>.topRating_list {
+        flex-direction: column;
+        margin-left: -30px;
+    }
+
+    .product_list>.topRating_list>.product>.home_topRating_product_footer>.product_price {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .product_list {
+        margin-left: 10px;
+    }
+}
 
 @media (max-width:390px) {
     .product_list > .topRating_list {
