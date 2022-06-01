@@ -18,7 +18,7 @@ const Login = () => {
         auth.signInWithEmailAndPassword(email,password).then((authResponse)=>{
             console.log(authResponse);
             if(authResponse){
-                if (basket){
+                if (basket.length > 0){
                     navigate('/checkout');
                 }else{
                     navigate('/');
