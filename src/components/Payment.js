@@ -165,6 +165,7 @@ const Payment = () => {
                 {deliveryAddress&&
                     <form onSubmit={addressConfirm}>
                         <div className='delivery_form'>
+                            <div className='delivery_form_input_area'>
                             <label>
                                 First Name: 
                                 <input 
@@ -194,7 +195,7 @@ const Payment = () => {
                                 />
                             </label>
                             <label>
-                                Contact Number: 
+                                <span>Contact Number: </span>
                                 <input 
                                     name="contact"
                                     type="text" 
@@ -202,10 +203,12 @@ const Payment = () => {
                                     onChange={handleChange} placeholder="contact number..." required
                                 />
                             </label>
-
+                            </div>
+                            <div className='delivery_form_btn'>
                             <button className='delivery_confirm_btn'>
                             CONFIRM
-                        </button>
+                            </button>
+                            </div>
                         </div>
                     </form>
                 }
