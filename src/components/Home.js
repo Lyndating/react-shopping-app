@@ -18,7 +18,6 @@ function Home() {
         const getCategories = async ()=>{
         const data = await getDocs(categoryCollectionRef);
             setCategories(data.docs.map((doc)=>({...doc.data(), id: doc.id})));
-            // setCategories(data.docs.map((((doc)=>(console.log(doc))))));
         }
         const getProducts = async ()=> {
             const data = await getDocs(productCollectionRef);
