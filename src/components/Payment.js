@@ -90,11 +90,13 @@ const Payment = () => {
 
     //create paymentintent and fetch client secret as soon as the page loads
     //whenever the basket changed, make the request and update the clientSecret to charge the updated value.
+    const paymentAmount = Number((subtotalAmount(basket)*100).toFixed(2));
+    console.log(paymentAmount);
     useEffect(()=>{
         const getClientSecret = async ()=>{
             const res = await axios({
                 method: "post",
-                url:`/payments/create?total=${subtotalAmount(basket)*100}`
+                url:`/payments/create?total=${paymentAmount}`
             })
             setClientSecret(res.data.clientSecret);
             console.log(res.data.clientSecret);
