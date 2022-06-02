@@ -52,7 +52,7 @@ You can access and use the application at [Shop Now](https://shopping-react-app-
 
 ##  App Pages Overview
 
-![Shopping_Flow_Chart]("/../public/images/Shopping_Flow_Chart.drawio.png")
+<img src="/public/images/Shopping_Flow_Chart.drawio.png" alt="flow_chart">
 
 
 
