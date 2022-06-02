@@ -52,7 +52,7 @@ You can access and use the application at [Shop Now](https://shopping-react-app-
 
 ##  App Pages Overview
 
-![Shopping_Flow_Chart](/Users/tingluo/Projects/seir52-Classwork/REACT/REACT/shopping-app/src/images/Shopping_Flow_Chart.drawio.png)
+![Shopping_Flow_Chart]("/../public/images/Shopping_Flow_Chart.drawio.png")
 
 
 
@@ -133,4 +133,4 @@ You can access and use the application at [Shop Now](https://shopping-react-app-
 <img src="/public/images/M-PaymentPage4.png" width="400" alt="web_payment"></span>
 
 ### Order Page
-<span><img src="/public/images/M-OrderPage.png">
+<span><img src="/public/images/M-OrderPage.png"></span>
