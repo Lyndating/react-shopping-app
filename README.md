@@ -1,6 +1,6 @@
 # React-Shopping-App
 
-React-shopping-app is an application that contains the primary functions of an online shopping website. The application is based on REACT.js linked to Express.js back-end by using firebase cloud functions and firestone to handle API requests.
+React-shopping-app is an application that contains the primary functions of an online shopping website. The application is based on REACT.js linked to Express.js back-end by using firebase cloud functions and firestore to handle API requests.
 
 ## Technologies
 
